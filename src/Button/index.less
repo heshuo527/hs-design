@@ -1,0 +1,42 @@
+@import '../style/color.less';
+.my-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 4px 15px;
+  margin-right: 20px;
+  border: 1px solid;
+  color: rgba(0, 0, 0, 0.65);
+  border-color: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &&-primary {
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+  }
+
+  &&-dashed {
+    border-style: dashed;
+  }
+
+  &&-dashed:hover {
+    border: 1px dashed #1890ff;
+    color: #1890ff;
+  }
+
+  &&-danger {
+    color: #f5222d;
+    background-color: #f5f5f5;
+  }
+
+  &&-danger:hover {
+    background: #f5222d;
+    color: #f5f5f5;
+  }
+}
