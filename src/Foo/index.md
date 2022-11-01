@@ -4,6 +4,10 @@
 Demo:
 
 ```tsx
+/**
+ * background: skyblue
+ */
+
 import React from 'react';
 import { Foo } from 'mydumi';
 

@@ -3,23 +3,17 @@ import classnames from 'classnames'
 import './index.less'
 
 export interface BUttonProps {
+  /**
+   * 按钮的子元素
+   * @description  一般是文案
+   */
   children: React.ReactNode;
-  icon?: string
-  position?: 'left' | 'right'
-  size?: 'small' | 'medium' | 'large'
+  /**
+   * @default  "default"
+   */
   type?: 'default' | 'dashed' | 'primary' | 'danger'
-  ghost?: boolean
-  htmlType?: 'button' | 'submit' | 'reset'
-  loading?: boolean
-  onClick?: React.MouseEventHandler
   disabled?: boolean
-  onMouseEnter?: React.MouseEventHandler
-  onMouseLeave?: React.MouseEventHandler
-  onFocus?: React.FocusEventHandler
-  onBlur?: React.FocusEventHandler
-  className?: string
-  style?: React.CSSProperties
-
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 const Button: React.FC<BUttonProps> = (props) => {
@@ -30,14 +24,28 @@ const Button: React.FC<BUttonProps> = (props) => {
     type = 'default'
   }
 
+  let disabled = props.disabled
+  if (!disabled) {
+    disabled = false
+  }
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (props.onClick) {
+      props.onClick(event)
+      console.log(props.onClick);
+    }
+  }
+
   return (
     <button
+      onClick={handleClick}
       className={classnames({
         'my-button': true,
+        'my-button-default': type === 'default',
         'my-button-primary': type === 'primary',
         'my-button-dashed': type === 'dashed',
         'my-button-danger': type === 'danger',
-      })}>{children}</button>
+      })} disabled>{children}</button>
   )
 }
 
