@@ -9,11 +9,12 @@ export interface BUttonProps {
    */
   children: React.ReactNode;
   /**
+   *  按钮类型
    * @default  "default"
    */
-  type?: 'default' | 'dashed' | 'primary' | 'danger'
-  disabled?: boolean
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  type?: 'default' | 'dashed' | 'primary' | 'danger';
+  disabled?: false;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void | undefined;
 }
 
 const Button: React.FC<BUttonProps> = (props) => {
@@ -32,7 +33,6 @@ const Button: React.FC<BUttonProps> = (props) => {
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (props.onClick) {
       props.onClick(event)
-      console.log(props.onClick);
     }
   }
 
