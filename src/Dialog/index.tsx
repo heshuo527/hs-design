@@ -32,7 +32,7 @@ const Dialog: React.FC<DialogType> = (props) => {
               <div className={sc('tit')}>{title}</div>
               <div className={sc('con')}>{content}</div>
               <button onClick={() => setOpen(!open)} className={sc('off')}>取消</button>
-              <button className={sc('done')}>完成</button>
+              <button onClick={() => setOpen(!open)} className={sc('done')}>完成</button>
             </div>
           </Fragment>
           : null
