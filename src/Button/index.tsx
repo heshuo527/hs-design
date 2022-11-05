@@ -13,7 +13,10 @@ export interface BUttonProps {
    * @default  "default"
    */
   type?: 'default' | 'dashed' | 'primary' | 'danger';
-  disabled?: false;
+  /**
+   *  disable是控制鼠标事件的属性
+   */
+  disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
@@ -25,10 +28,8 @@ const Button: React.FC<BUttonProps> = (props) => {
     type = 'default'
   }
 
+
   let disabled = props.disabled
-  if (!disabled) {
-    disabled = false
-  }
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (props.onClick) {
@@ -45,7 +46,7 @@ const Button: React.FC<BUttonProps> = (props) => {
         'my-button-primary': type === 'primary',
         'my-button-dashed': type === 'dashed',
         'my-button-danger': type === 'danger',
-      })} disabled>{children}</button>
+      })} disabled={disabled} >{children}</button>
   )
 }
 
