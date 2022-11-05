@@ -14,7 +14,7 @@ export interface BUttonProps {
    */
   type?: 'default' | 'dashed' | 'primary' | 'danger';
   disabled?: false;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void | undefined;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 const Button: React.FC<BUttonProps> = (props) => {
