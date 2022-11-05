@@ -1,19 +1,23 @@
 import React, { Fragment, useState } from 'react'
 import Button from '../Button'
+import {scopedClassMaker} from '../types/classes'
 import './index.less'
 
 export interface DialogType {
-  visible?: boolean
   children: React.ReactNode
   title: any
   content: any
 }
 
+const scopedClass = scopedClassMaker('my-dialog')
+const sc = scopedClass
+
 const Dialog: React.FC<DialogType> = (props) => {
 
   const [open, setOpen] = useState<Boolean>(false)
-  const { visible, children, title, content } = props
+  const [close, setClose] = useState<Boolean>(false)
 
+  const { children, title, content } = props
   return (
     <>
       <Button
@@ -23,10 +27,12 @@ const Dialog: React.FC<DialogType> = (props) => {
       {
         open ?
           <Fragment>
-            <div className='my-dialog-mask'></div>
-            <div className='my-dialog-nav'>
-              <div>{title}</div>
-              <div>{content}</div>
+            <div className={sc('mask')}></div>
+            <div className={sc('')}>
+              <div className={sc('tit')}>{title}</div>
+              <div className={sc('con')}>{content}</div>
+              <button onClick={() => setOpen(!open)} className={sc('off')}>取消</button>
+              <button className={sc('done')}>完成</button>
             </div>
           </Fragment>
           : null

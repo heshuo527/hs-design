@@ -1,8 +1,13 @@
 .my-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30em;
+  height: 15em;
+  border-radius: 4px;
+  background: #fff;
 
-}
-
-.my-dialog {
   &-mask {
     position: fixed;
     top: 0;
@@ -11,10 +16,74 @@
     height: 100%;
     background: black;
     opacity: 0.3;
+    animation: animation01_line01 0.2s linear 1s forwards;
   }
-  &-nav {
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
+
+  &-tit {
+    padding: 20px 16px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
+
+  &-con {
+    margin-left: 20px;
+    padding: 5px 0px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  &-off {
+    position: fixed;
+    right: 6em;
+    bottom: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 15px;
+    border: 1px solid;
+    margin: 10px 10px;
+    color: rgb(0, 0, 0);
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background-color: #ffffff;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+      outline: none;
+      color: #1890ff;
+      border-color: #1890ff;
+    }
+  }
+
+  &-done {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 15px;
+    border: 1px solid;
+    margin: 10px 20px;
+    color: rgb(255, 255, 255);
+    border-color: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    background-color: #1890ff;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+      background-color: #40a9ff;
+      border-color: #40a9ff;
+    }
+  }
+
 }
