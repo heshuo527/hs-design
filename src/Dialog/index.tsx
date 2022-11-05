@@ -1,33 +1,37 @@
-import React, { useState } from 'react'
-import classnames from 'classnames'
+import React, { Fragment, useState } from 'react'
+import Button from '../Button'
 import './index.less'
 
 export interface DialogType {
-  visible: boolean
-  type?: 'default'
+  visible?: boolean
   children: React.ReactNode
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  title: any
+  content: any
 }
 
 const Dialog: React.FC<DialogType> = (props) => {
 
   const [open, setOpen] = useState<Boolean>(false)
-  const { visible, type, children, onClick } = props
-
-  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (props.onClick) {
-      props.onClick(event)
-    }
-  }
+  const { visible, children, title, content } = props
 
   return (
-    <button
-      onClick={handleOnClick}
-      className={classnames({
-        "my-dialog": true,
-        'my-dialog-default': type == 'default',
-      })}
-    > {children}</button >
+    <>
+      <Button
+        type='primary'
+        onClick={() => setOpen(!open)}
+      > {children} </Button>
+      {
+        open ?
+          <Fragment>
+            <div className='my-dialog-mask'></div>
+            <div className='my-dialog-nav'>
+              <div>{title}</div>
+              <div>{content}</div>
+            </div>
+          </Fragment>
+          : null
+      }
+    </>
   )
 }
 

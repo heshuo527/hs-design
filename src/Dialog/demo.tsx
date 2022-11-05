@@ -1,9 +1,13 @@
 import React from "react";
 import Dialog from ".";
 
+
 const Demo1 = () => {
+
   return (
-    <Dialog visible>Open Dialog</Dialog>
+    <Dialog title='标题' content='内容'>
+      Open Dialog
+    </Dialog>
   )
 }
 
