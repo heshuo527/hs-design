@@ -1,9 +1,8 @@
 @import '../style/color.less';
 
-a{
+a {
   text-decoration: none;
 }
-
 .my-button {
   display: inline-flex;
   justify-content: center;
@@ -20,40 +19,76 @@ a{
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  &&-default:hover {
-    outline: none;
-    color: #1890ff;
-    border-color: #1890ff;
-    z-index: 1;
-  }
-
-  &&-primary {
+  &.ghost {
     color: #fff;
-    background-color: #1890ff;
-    border-color: #1890ff;
+    border-color: #fff;
+    background-color: transparent;
   }
 
-  &&-primary:hover {
-    background-color: #40a9ff;
-    border-color: #40a9ff;
-  }
+}
 
-  &&-dashed {
-    border-style: dashed;
-  }
+.default:hover {
+  outline: none;
+  color: #1890ff;
+  border-color: #1890ff;
+  z-index: 1;
+}
 
-  &&-dashed:hover {
-    border: 1px dashed #1890ff;
+.primary {
+  color: #fff;
+  background-color: primary;
+  border-color: #1890ff;
+
+  &.ghost {
     color: #1890ff;
-  }
+    border-color: #1890ff;
+    background-color: transparent;
 
-  &&-danger {
-    color: #f5222d;
-    background-color: #f5f5f5;
+    &:hover {
+      color: #40a9ff;
+      border-color: #40a9ff;
+    }
   }
+}
 
-  &&-danger:hover {
-    background: #f5222d;
-    color: #f5f5f5;
-  }
+.primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.dashed {
+  border-style: dashed;
+}
+
+.dashed:hover {
+  border: 1px dashed #1890ff;
+  color: #1890ff;
+}
+
+.danger {
+  color: #f5222d;
+  background-color: #f5f5f5;
+}
+
+.danger:hover {
+  background: #f5222d;
+  color: #f5f5f5;
+}
+
+.small {
+  font-size: 12px;
+  line-height: 20px;
+  padding: 2px 10px;
+}
+
+.medium {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 4px 12px;
+}
+
+.large {
+  font-size: 16px;
+  line-height: 20px;
+  padding: 6px 14px;
 }
