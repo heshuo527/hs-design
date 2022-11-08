@@ -7,14 +7,13 @@ export interface BUttonProps {
   children?: React.ReactNode;
   type?: 'default' | 'dashed' | 'primary' | 'danger';
   disabled?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-
   icon?: string
   position?: 'left' | 'right'
   size?: 'small' | 'medium' | 'large'
   ghost?: boolean
   htmlType?: 'button' | 'submit' | 'reset'
   loading?: boolean
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   onMouseEnter?: React.MouseEventHandler
   onMouseLeave?: React.MouseEventHandler
   onFocus?: React.FocusEventHandler
@@ -56,7 +55,16 @@ const Button: React.FC<BUttonProps> = (props) => {
 
   return (
     <button
-      className={buttonClassName}
+      className={classnames({
+        'my-button': true,
+        'my-button-default': type === 'default',
+        'my-button-primary': type === 'primary',
+        'my-button-dashed': type === 'dashed',
+        'my-button-danger': type === 'danger',
+        'my-button-small': size === 'small',
+        'my-button-medium': size === 'medium',
+        'my-button-large': size === 'large',
+      })}
       style={style}
       type={htmlType}
       disabled={disabled}
@@ -65,13 +73,3 @@ const Button: React.FC<BUttonProps> = (props) => {
 }
 
 export default Button
-
-
-/* onClick={handleClick}
-className={classnames({
-  'my-button': true,
-  'my-button-default': type === 'default',
-  'my-button-primary': type === 'primary',
-  'my-button-dashed': type === 'dashed',
-  'my-button-danger': type === 'danger',
-})} */
