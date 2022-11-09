@@ -13,7 +13,7 @@ export interface BUttonProps {
   ghost?: boolean
   htmlType?: 'button' | 'submit' | 'reset'
   loading?: boolean
-  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClick?: React.MouseEventHandler
   onMouseEnter?: React.MouseEventHandler
   onMouseLeave?: React.MouseEventHandler
   onFocus?: React.FocusEventHandler
@@ -42,16 +42,11 @@ const Button: React.FC<BUttonProps> = (props) => {
     ...rest
   } = props
 
+  // 样式封装
   const buttonClassName = classes(cn, '', [position, size, type, className], {
     ghost,
     disabled
   })
-
-  /* const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (props.onClick) {
-      props.onClick(event)
-    }
-  } */
 
   return (
     <button
