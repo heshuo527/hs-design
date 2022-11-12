@@ -13,7 +13,7 @@ const Demo1 = () => {
           <p>3. 内容是</p>
         </>
       ]
-    } buttonName={['取消', '完成']}>
+    } buttonName={['取消', '完成']} >
       Open Dialog
     </Dialog>
   )

@@ -5,8 +5,8 @@ const demo2 = () => {
   return (
     <>
       <Button type='primary' size='small'>small</Button>
-      <Button size='medium'>medium</Button>
-      <Button size='large'>large</Button>
+      <Button type='primary' size='medium'>medium</Button>
+      <Button type='primary' size='large'>large</Button>
     </>
   )
 }
