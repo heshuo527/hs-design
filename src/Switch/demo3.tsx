@@ -1,9 +1,9 @@
 import React from 'react'
-import Switch from './Switch'
+import Switch from '.'
 
 const demo3 = () => {
   return (
-    <Switch>demo1</Switch>
+    <Switch></Switch>
   )
 }
 export default demo3
