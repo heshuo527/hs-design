@@ -13,7 +13,8 @@ const Demo1 = () => {
           <p>3. 内容是</p>
         </>
       ]
-    } buttonName={['取消', '完成']} >
+    } cancelText='取消' onText='确认' okType="primary" onSize="small" onConfirm={() => console.log(111)}
+    >
       Open Dialog
     </Dialog>
   )

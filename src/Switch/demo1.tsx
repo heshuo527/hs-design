@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import Switch from '.'
 
-const demo1 = () => {
+function demo1() {
 
-  const [derivedChecked, setDerivedChecked] = useState(false)
+  const [checked, setChecked] = useState(false)
+
+  const onChange = (checked: boolean) => {
+    console.log(`switch to ${checked}`);
+  };
+
   return (
-    <Switch defaultChecked onClick={() => setDerivedChecked(!derivedChecked)}></Switch>
+    <Switch checked={false} onClick={() => setChecked(!checked)}></Switch>
   )
 }
+
 export default demo1

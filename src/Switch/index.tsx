@@ -1,76 +1,57 @@
-import React, { useState } from 'react'
-import { classes } from '../utils'
+import React from 'react'
+import classnames from 'classNames'
 import './index.less'
 
 export interface SwitchProps {
-  checked?: boolean
-  defaultChecked?: boolean
+  checked?: Boolean
+  /**
+   * 开关初始状态为false
+   */
+  defaultChecked?: false
+  children?: React.ReactNode
+  disabled?: Boolean
   size?: 'small' | 'default'
+  onClick?: React.MouseEventHandler
   onChange?: (checked: boolean, e: React.MouseEvent) => any
-  disabled?: boolean
-  className?: string
-  style?: React.CSSProperties
-  derivedChecked?: boolean
-  onClick?: React.MouseEventHandler<Element>
+  style?: React.CSSProperties;
 }
 
 export interface SwitchState {
   derivedChecked: boolean
 }
 
-const componentName = 'Switch'
+export type SwitchClickEventHandler = SwitchChangeEventHandler;
+
+export type SwitchChangeEventHandler = (
+  checked: boolean,
+  event: React.MouseEvent<HTMLButtonElement>,
+) => void;
 
 const Switch: React.FC<SwitchProps> = (props) => {
+  const { children, onChange, checked } = props
 
-  const [defaultChecked, setDefaultChecked] = useState(false)
-
-  /* let defaultProps = {
-    size: 'default',
-    defaultChecked: false,
-    disabled: false
-  } */
-
-  /*  const getDerivedStateFromProps = (
-     nextProps: SwitchProps,
-     prevState: SwitchState
-   ) => {
-     const { checked } = nextProps
-     const { derivedChecked } = prevState
-     if ('checked' in nextProps && checked !== derivedChecked) {
-       return { derivedChecked: checked }
-     }
-     return null
-   } */
+  let disabled = props.disabled
+  if (!disabled) {
+    disabled = false
+  }
 
   const handleClick: React.MouseEventHandler = e => {
-    const { disabled, onChange } = props
     if (disabled) {
       return
     }
-    const { derivedChecked } = props
-    setDefaultChecked(!derivedChecked)
 
-    if (onChange) {
-      onChange(!derivedChecked, e)
-    }
   }
-
-  const cn = componentName
-  const { size, disabled, style, className } = props
-  const { derivedChecked } = props
-  const switchClassName = classes(cn, '', [className, size], {
-    checked: derivedChecked,
-    disabled
-  })
-  console.log('我执行了', props);
 
   return (
     <span
-      className={switchClassName}
+      className={classnames({
+        'my-switch': true,
+        'my-switch-disable': disabled,
+        'my-switch-checked': checked,
+      })}
       onClick={handleClick}
-      style={style}
     >
-      <span className={classes(cn, 'core')} />
+      <span className='my-switch-core'>{children}</span>
     </span>
   )
 }
