@@ -6,6 +6,7 @@ import './index.less'
 import '../style/base.less'
 
 export interface DialogType {
+  asyncOpen?: boolean
   children?: React.ReactNode
   title?: any
   content?: any
@@ -43,44 +44,42 @@ const sc = scopedClass
 const Dialog: React.FC<DialogType> = (props) => {
 
   const [open, setOpen] = useState<Boolean>(false)
-  const { children, title, content, style, onConfirm, onCancel, onMask, onDialog } = props
+  const { children, style, onConfirm, onCancel, onMask, onDialog } = props
+  let { onText,
+    cancelText,
+    okType,
+    cancelType,
+    onSize,
+    cancelSize,
+    maskClosable,
+    type,
+    title,
+    content } = props
 
-  let onText = props.onText
-  if (onText) {
-    onText = props.onText
+  if (!onText) {
+    onText = '完成'
   }
-
-  let cancelText = props.onText
-  if (cancelText) {
-    cancelText = props.cancelText
-  }
-
-  let okType = props.okType
   if (!okType) {
     okType = 'primary'
   }
-
-  let cancelType = props.cancelType
+  if (!title) {
+    title = '标题'
+  }
+  if (!content) {
+    content = '内容'
+  }
   if (!cancelType) {
     cancelType = 'default'
   }
-
-  let onSize = props.onSize
   if (!onSize) {
     onSize = 'default'
   }
-
-  let cancelSize = props.cancelSize
   if (!cancelSize) {
     cancelSize = 'default'
   }
-
-  let maskClosable = props.maskClosable
   if (!maskClosable) {
     maskClosable = false
   }
-
-  let type = props.type
   if (!type) {
     type = 'primary'
   }

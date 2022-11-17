@@ -1,9 +1,11 @@
 import React from 'react'
 import Dialog from '.'
 
- function Demo2() {
+function Demo2() {
   return (
-    <div>demo2</div>
+    <Dialog asyncOpen>
+      async Dialog
+    </Dialog>
   )
 }
 

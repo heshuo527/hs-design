@@ -11,8 +11,8 @@
 />
 <code
   src="./demo2.tsx"
-  title="命令式使用"
-  desc="调用 openModal 函数弹出一个对话框，openModal 函数将返回一个 promise 对象，其状态由用户操作决定。"
+  title="异步关闭"
+  desc="点击确定后异步提交对话框"
 />
 
 ## API
@@ -24,7 +24,7 @@
 | content |	内容 |	`string` | `ReactNode`	| ——
 | okText|	确认按钮文字	| `string` |	`确定`
 | okType |	确认按钮类型 |	`default`  `dashed`  `primary`  `danger` |	`primary`
-| cancelText |	取消按钮文字	| `string` |	`取消`
+| cancelText |	取消按钮文字	| `string` |	——
 | cancelType |	取消按钮类型	| `default`  `dashed`  `primary`  `danger` | `default`
 | className | 自定义 Dialog 类名 | `string` | —— |
 | onSize | 确认按钮的大小 | `default` `small` | `default` 
