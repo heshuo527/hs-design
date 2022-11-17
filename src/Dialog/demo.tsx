@@ -4,6 +4,7 @@ import Dialog from ".";
 
 const Demo1 = () => {
 
+
   return (
     <Dialog title='标题' content={
       [
@@ -13,8 +14,7 @@ const Demo1 = () => {
           <p>3. 内容是</p>
         </>
       ]
-    } cancelText='取消' onText='确认' okType="primary" onSize="small" onConfirm={() => console.log(111)}
-    >
+    } cancelText='取消' onMask={() => console.log(222)} onText='确认' okType="primary" onConfirm={() => console.log(111)}>
       Open Dialog
     </Dialog>
   )

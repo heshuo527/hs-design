@@ -2,7 +2,7 @@
 
 .my-dialog {
   position: fixed;
-  top: 50%;
+  top: 35%;
   left: 50%;
   width: 30em;
   transform: translate(-50%, -50%);
@@ -10,7 +10,7 @@
   min-height: 15em;
   border-radius: 4px;
   background: #fff;
-  transition: all .3s cubic-bezier(.645, .045, .355, 1);
+  animation: conAction .3s;
 
   &-mask {
     position: fixed;
@@ -21,7 +21,7 @@
     z-index: 10;
     background: black;
     opacity: 0.5;
-    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    animation: maskAction .3s;
 
   }
 
@@ -32,7 +32,6 @@
     line-height: 22px;
     font-weight: 700;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    transition: all .3s cubic-bezier(.645, .045, .355, 1);
 
   }
 
@@ -43,7 +42,6 @@
     font-size: 14px;
     line-height: 22px;
     font-weight: 400;
-    transition: all .3s cubic-bezier(.645, .045, .355, 1);
 
   }
 
@@ -111,9 +109,9 @@
       }
 
       &-small {
-        font-size: 10px;
-        line-height: 18px;
-        padding: 3px 11px;
+        font-size: 11px;
+        line-height: 20px;
+        padding: 4px 12px;
         border-radius: 4px;
       }
     }
@@ -140,5 +138,74 @@
         }
       }
     }
+  }
+}
+
+/* 动画实现 */
+@keyframes maskAction {
+  0% {
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.1;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+  }
+}
+
+@keyframes opMaskAction {
+
+  100% {
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.5;
+  }
+
+  0% {
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.1;
+  }
+}
+
+@keyframes conAction {
+  0% {
+    top: 70%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: #fff;
+    opacity: 0.1;
+  }
+
+  100% {
+    width: 30em;
+    border-radius: 4px;
+    background: #fff;
+  }
+}
+
+@keyframes opConAction {
+
+  100% {
+    width: 30em;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  0% {
+    top: 70%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: #fff;
+    opacity: 0.1;
   }
 }

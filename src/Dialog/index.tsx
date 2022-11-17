@@ -3,18 +3,22 @@ import Button from '../Button'
 import { scopedClassMaker, buttonClassNames } from '../types/classes'
 import classnames from 'classnames'
 import './index.less'
+import '../style/base.less'
 
 export interface DialogType {
-  children: React.ReactNode
-  title: any
-  content: any
+  children?: React.ReactNode
+  title?: any
+  content?: any
   onText?: string
   okType?: 'default' | 'dashed' | 'primary' | 'danger'
   cancelText?: string
   cancelType?: 'default' | 'dashed' | 'primary' | 'danger'
+  type?: 'default' | 'dashed' | 'primary' | 'danger'
   onSize?: 'small' | 'default'
   cancelSize?: 'small' | 'default'
   style?: React.CSSProperties
+  className?: string
+  maskClosable?: boolean
   /**
    * 点击确认按钮的回调
    */
@@ -27,6 +31,10 @@ export interface DialogType {
    * 点击蒙版时的回调
    */
   onMask?: (e: React.MouseEvent) => any
+  /**
+   * 点击主按钮时的回调
+   */
+  onDialog?: (e: React.MouseEvent) => any
 }
 
 const scopedClass = scopedClassMaker('my-dialog')
@@ -35,7 +43,7 @@ const sc = scopedClass
 const Dialog: React.FC<DialogType> = (props) => {
 
   const [open, setOpen] = useState<Boolean>(false)
-  const { children, title, content, style, onConfirm, onCancel, onMask } = props
+  const { children, title, content, style, onConfirm, onCancel, onMask, onDialog } = props
 
   let onText = props.onText
   if (onText) {
@@ -57,9 +65,29 @@ const Dialog: React.FC<DialogType> = (props) => {
     cancelType = 'default'
   }
 
+  let onSize = props.onSize
+  if (!onSize) {
+    onSize = 'default'
+  }
+
+  let cancelSize = props.cancelSize
+  if (!cancelSize) {
+    cancelSize = 'default'
+  }
+
+  let maskClosable = props.maskClosable
+  if (!maskClosable) {
+    maskClosable = false
+  }
+
+  let type = props.type
+  if (!type) {
+    type = 'primary'
+  }
+
   const onTextClick = (event: React.MouseEvent) => {
-    if (props.onConfirm) {
-      props.onConfirm(event)
+    if (onConfirm) {
+      onConfirm(event)
     }
     if (open) {
       setOpen(!open)
@@ -67,8 +95,8 @@ const Dialog: React.FC<DialogType> = (props) => {
   }
 
   const cancelTextOnClick = (event: React.MouseEvent) => {
-    if (props.onCancel) {
-      props.onCancel(event)
+    if (onCancel) {
+      onCancel(event)
     }
     if (open) {
       setOpen(!open)
@@ -76,24 +104,46 @@ const Dialog: React.FC<DialogType> = (props) => {
   }
 
   const onMaskOnclick = (event: React.MouseEvent) => {
-    if (props.onMask) {
-      props.onMask(event)
+    if (onMask) {
+      onMask(event)
+    }
+    if (open) {
+      setOpen(!open)
+    }
+  }
+
+  const onMaskClosable = (event: React.MouseEvent) => {
+    if (onMask) {
+      onMask(event)
+    }
+  }
+
+  const dialogClick = (event: React.MouseEvent) => {
+    setOpen(!open)
+    if (onDialog) {
+      onDialog(event)
     }
   }
 
   return (
     <>
       <Button
-        type='primary'
-        onClick={() => setOpen(!open)}
+        type={type}
+        onClick={dialogClick}
       > {children} </Button>
       {
         open ?
           <Fragment>
-            <div
-              className={sc('mask')}
-              onClick={onMaskOnclick}
-            ></div>
+            {
+              maskClosable ?
+                <div
+                  className={sc('mask')}
+                  onClick={onMaskOnclick}
+                ></div> : <div
+                  className={sc('mask')}
+                  onClick={onMaskClosable}
+                ></div>
+            }
             <div
               className={sc('')}
               style={style}
@@ -104,14 +154,14 @@ const Dialog: React.FC<DialogType> = (props) => {
                 {
                   cancelText ?
                     <button onClick={cancelTextOnClick}
-                      className={classnames(buttonClassNames(cancelType))}
+                      className={classnames(buttonClassNames(cancelType, cancelSize))}
                     >{cancelText}</button> :
                     null
                 } {
                   onText ?
                     <button
                       onClick={onTextClick}
-                      className={classnames(buttonClassNames(okType))}
+                      className={classnames(buttonClassNames(okType, onSize))}
                     >{onText}</button> :
                     null
                 }

@@ -4,14 +4,14 @@ function scopedClassMaker(prefix: string) {
   }
 }
 
-function buttonClassNames (b: any) {
+function buttonClassNames (b: any, t:any) {
   let buttonClasses = {
     'my-dialog-button': true,
     'my-dialog-button-default': b === 'default',
     'my-dialog-button-dashed': b === 'dashed',
     'my-dialog-button-primary': b === 'primary',
     'my-dialog-button-danger': b === 'danger',
-    'my-dialog-button-primary-small': b === 'small',
+    'my-dialog-button-primary-small': t === 'small',
 
   }
   return buttonClasses

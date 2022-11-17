@@ -6,23 +6,32 @@
 
 <code
   src="./demo.tsx"
-  desc="基本对话框"
+  title="组件式使用"
+  desc="使用组件声明一个对话框，通过控制 visible 属性来显示/隐藏。"
+/>
+<code
+  src="./demo2.tsx"
+  title="命令式使用"
+  desc="调用 openModal 函数弹出一个对话框，openModal 函数将返回一个 promise 对象，其状态由用户操作决定。"
 />
 
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| type | 主按钮类型 | `default`  `dashed`  `primary`  `danger` |	`primary`
 | title| 	标题	| `string` | `ReactNode` |	——
 | content |	内容 |	`string` | `ReactNode`	| ——
 | okText|	确认按钮文字	| `string` |	`确定`
 | okType |	确认按钮类型 |	`default`  `dashed`  `primary`  `danger` |	`primary`
 | cancelText |	取消按钮文字	| `string` |	`取消`
 | cancelType |	取消按钮类型	| `default`  `dashed`  `primary`  `danger` | `default`
-| className | Switch 器类名 | `string` | - |
-| defaultChecked | 初始是否选中 | `boolean` | `false` |
-| size | 开关大小，可选值：`default` `small` | `string` | `default` |
-| unCheckedChildren | 非选中时的内容 | `ReactNode` | - |
-| onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |
-| onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |
-| style |	自定义 Modal 样式	| React.CSSProperties |	——
+| className | 自定义 Dialog 类名 | `string` | —— |
+| onSize | 确认按钮的大小 | `default` `small` | `default` 
+| cancelSize | 取消按钮的大小 | `default` `small` | `default` 
+| onDialog | 点击主按钮时的回调 | `(e: React.MouseEvent) => any)` | ——
+| onConfirm	| 点击确认按钮时的回调 |	`(e: React.MouseEvent) => any)` |	——
+| onCancel	| 点击取消按钮时的回调 |	`(e: React.MouseEvent) => any)` |	——
+| maskClosable |	点击蒙层是否关闭 Dialog |	`boolean`	| `false`
+| onMask	| 点击蒙层时的回调 |	`(e: React.MouseEvent) => any)` |	——
+| style |	自定义 Dialog 样式	| `React.CSSProperties` |	——
