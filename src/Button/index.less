@@ -15,7 +15,62 @@
   border-radius: 4px;
   background-color: #fff;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: .3s;
+  transform: scale(1);
+
+  &-default {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @brand;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+  }
+
+  &.my-button-ghost {
+    color: #fff;
+    border: 1px solid;
+    border-color: #fff;
+    background-color: transparent;
+  }
+
+  &.my-button-disabled {
+    color: rgba(0, 0, 0, 0.25);
+    border-color: #d9d9d9;
+    background-color: #e6e6e6;
+    cursor: not-allowed;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+    }
+  }
+
+  &.my-button-ghost.my-button-disabled {
+    background-color: transparent;
+  }
+
+  &:hover {
+    color: @brand;
+    border-color: @brand;
+    z-index: 1;
+  }
+
+  &:focus {
+    outline: none;
+    color: @brand;
+    border-color: @brand;
+    z-index: 1;
+  }
 
   &&-primary {
     color: #fff;
@@ -28,7 +83,35 @@
       border-color: @hover;
     }
 
-    &.ghost {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @brand;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+
+    &.my-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+      background-color: #e6e6e6;
+      cursor: not-allowed;
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.25);
+        border-color: #d9d9d9;
+      }
+    }
+
+    &.my-button-ghost {
       color: @brand;
       border-color: @brand;
       background-color: transparent;
@@ -67,14 +150,30 @@
       background-color: #fff;
       border-color: @error;
 
-      &.disabled {
+      &.my-button-disabled {
         border-color: #d9d9d9;
         color: rgba(0, 0, 0, 0.25);
         background-color: #e6e6e6;
       }
     }
 
-    &.ghost {
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @error;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+
+    &.my-button-ghost {
       color: @error;
       border-color: @error;
       background-color: transparent;
@@ -85,14 +184,14 @@
       }
     }
 
-    &.disabled {
+    &.my-button-disabled {
       background-color: #e6e6e6;
     }
 
-    &.ghost.disabled {
-      border-color: #fff;
-      color: rgba(0, 0, 0, 0.25);
-      background-color: transparent;
+    &.my-button-ghost.my-button-disabled {
+      border-color: #fff !important;
+      color: rgba(0, 0, 0, 0.25) !important;
+      background-color: transparent !important;
     }
   }
 
@@ -110,6 +209,22 @@
 
   &&-dashed {
     border-style: dashed;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @brand;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
   }
 
 }

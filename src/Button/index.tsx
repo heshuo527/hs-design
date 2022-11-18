@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import classes from '../utils/classes';
+import classes from '../utils/classes'
 import './index.less'
 
 export interface BUttonProps {
@@ -22,12 +22,9 @@ export interface BUttonProps {
   style?: React.CSSProperties
 }
 
-const componentName = 'button'
-
 const Button: React.FC<BUttonProps> = (props) => {
 
-  const cn = componentName
-  const {
+  let {
     position,
     icon,
     loading,
@@ -42,11 +39,14 @@ const Button: React.FC<BUttonProps> = (props) => {
     ...rest
   } = props
 
-  // 样式封装
-  const buttonClassName = classes(cn, '', [position, size, type, className], {
-    ghost,
-    disabled
-  })
+  if (!type) {
+    type = 'default'
+  }
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (props.onClick) {
+      props.onClick(event);
+    }
+  }
 
   return (
     <button
@@ -59,10 +59,13 @@ const Button: React.FC<BUttonProps> = (props) => {
         'my-button-small': size === 'small',
         'my-button-medium': size === 'medium',
         'my-button-large': size === 'large',
+        'my-button-ghost': ghost,
+        'my-button-disabled': disabled,
       })}
       style={style}
       type={htmlType}
       disabled={disabled}
+      onClick={handleClick}
       {...rest}>{children}</button>
   )
 }

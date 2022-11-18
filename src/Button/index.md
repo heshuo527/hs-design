@@ -27,3 +27,18 @@
 />
 
 
+## API
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| icon |	内嵌 Icon 图标的 name 属性 |	`string` |	——
+| position |	内嵌Icon 图标的位置 |	`left`  `right` |	`left`
+| type |	不同样式风格的按钮 |	`default` `dashed`  `primary`  `danger` |	`default`
+| size |	按钮的尺寸 |	`small` `medium` `large` | `medium`
+| loading |	加载中状态 |	`boolean`	| `false`
+| disabled |	禁用状态 |	`boolean`	| `false`
+| ghost |	幽灵按钮 |	`boolean` |	`false`
+| htmlType |	按钮的原生 type 属性	| `button`  `submit`  `reset`|`button`
+| onClick |	点击按钮时的回调 |	`React.MouseEventHandler`	| ——
+| className |	自定义 Button 类名	| `string`	| ——
+| style |	自定义 Button 样式 |	`React.CSSProperties`	| ——
