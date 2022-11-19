@@ -3,8 +3,16 @@ import Switch from '.'
 
 function demo4() {
 
+  const [checked, setChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(true)
+
   return (
-    <Switch checked ></Switch>
+    <>
+      <Switch checked={checked} onChange={() => setChecked(!checked)} ></Switch>
+      <br />
+      <br />
+      <Switch checked={isChecked} onChange={() => setIsChecked(!isChecked)} ></Switch>
+    </>
   )
 }
 

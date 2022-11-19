@@ -3,45 +3,40 @@ import classnames from 'classNames'
 import './index.less'
 
 export interface SwitchProps {
-  checked?: Boolean
   /**
-   * 开关初始状态为false
+   * 默认false就是默认关闭状态
+   * 默认true就是默认打开状态
    */
-  defaultChecked?: false
+  checked?: Boolean
   children?: React.ReactNode
   disabled?: Boolean
   size?: 'small' | 'default'
-  onClick?: React.MouseEventHandler
   onChange?: (checked: boolean, e: React.MouseEvent) => any
   style?: React.CSSProperties;
 }
 
 export interface SwitchState {
-  derivedChecked: boolean
+  derivedChecked?: boolean
 }
 
-export type SwitchClickEventHandler = SwitchChangeEventHandler;
+const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
 
-export type SwitchChangeEventHandler = (
-  checked: boolean,
-  event: React.MouseEvent<HTMLButtonElement>,
-) => void;
+  const { children, onChange } = props
+  let { size, disabled, checked, derivedChecked } = props
 
-const Switch: React.FC<SwitchProps> = (props) => {
-
-  const { children, onChange, checked, onClick } = props
-
-  let disabled = props.disabled
   if (!disabled) {
     disabled = false
+  }
+  if (!size) {
+    size = 'default'
   }
 
   const handleClick: React.MouseEventHandler = e => {
     if (disabled) {
       return
     }
-    if (onClick) {
-      onClick(e)
+    if (onChange) {
+      onChange(!derivedChecked, e)
     }
   }
 
@@ -49,8 +44,10 @@ const Switch: React.FC<SwitchProps> = (props) => {
     <span
       className={classnames({
         'my-switch': true,
-        'my-switch-disable': disabled,
+        'my-switch-default': size === 'default',
+        'my-switch-small': size === 'small',
         'my-switch-checked': checked,
+        'my-switch-disabled': disabled,
       })}
       onClick={handleClick}
     >

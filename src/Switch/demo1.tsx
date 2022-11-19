@@ -6,7 +6,7 @@ function demo1() {
   const [checked, setChecked] = useState(false)
 
   return (
-    <Switch disabled checked={checked} onClick={() => setChecked(!checked)} ></Switch>
+    <Switch checked={checked} onChange={() => setChecked(!checked)} ></Switch>
   )
 }
 

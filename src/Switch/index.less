@@ -22,7 +22,7 @@
     transition: all .2s linear;
   }
 
-  &-checked {
+  &.my-switch-checked {
     background-color: @brand;
 
     >.my-switch-core {
@@ -32,19 +32,7 @@
 
   &.my-switch-disabled {
     cursor: not-allowed;
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: inherit;
-      background-color: #fff;
-      opacity: 0.4;
-    }
+    opacity: 0.5;
   }
 
   &::after {
@@ -57,14 +45,14 @@
     transition: all .2s linear;
   }
 
-  &.small {
-    width: 32px;
-    height: 18px;
+  &-small {
+    width: 30px;
+    height: 15px;
     padding: 2px;
 
     >.my-switch-core {
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
     }
   }
 }
