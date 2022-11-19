@@ -1,15 +1,15 @@
 import React from 'react'
 import Button from '.'
 
-const Demo1 = () => {
+const demo = () => {
   return (
     <>
-      <Button ghost disabled >Default</Button>
+      <Button>Default</Button>
       <Button type='primary' >Primary</Button>
       <Button type='dashed'>Dashed</Button>
-      <Button disabled type='danger'>Danger</Button>
+      <Button type='danger'>Danger</Button>
     </>
   )
 }
 
-export default Demo1
+export default demo

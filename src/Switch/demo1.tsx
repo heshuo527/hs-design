@@ -10,7 +10,7 @@ function demo1() {
   };
 
   return (
-    <Switch checked={false} onClick={() => setChecked(!checked)}></Switch>
+    <Switch checked onClick={(checked) => checked=true}></Switch>
   )
 }
 

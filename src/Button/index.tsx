@@ -43,6 +43,9 @@ const Button: React.FC<BUttonProps> = (props) => {
     type = 'default'
   }
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (disabled) {
+      return
+    }
     if (props.onClick) {
       props.onClick(event);
     }

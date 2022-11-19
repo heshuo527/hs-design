@@ -39,7 +39,6 @@ const Switch: React.FC<SwitchProps> = (props) => {
     if (disabled) {
       return
     }
-
   }
 
   return (

@@ -25,6 +25,11 @@
   desc="幽灵按钮常用在有色背景上。"
   background= "rgb(190, 200, 200)"
 />
+<code
+  src="./demo4.tsx"
+  title="禁用按钮"
+  desc="添加disabled属性后状态为不可点,也不会触发onClick事件"
+/>
 
 
 ## API
