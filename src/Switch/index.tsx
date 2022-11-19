@@ -28,7 +28,8 @@ export type SwitchChangeEventHandler = (
 ) => void;
 
 const Switch: React.FC<SwitchProps> = (props) => {
-  const { children, onChange, checked } = props
+
+  const { children, onChange, checked, onClick } = props
 
   let disabled = props.disabled
   if (!disabled) {
@@ -38,6 +39,9 @@ const Switch: React.FC<SwitchProps> = (props) => {
   const handleClick: React.MouseEventHandler = e => {
     if (disabled) {
       return
+    }
+    if (onClick) {
+      onClick(e)
     }
   }
 
