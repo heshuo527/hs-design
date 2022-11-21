@@ -4,7 +4,7 @@ import { Row, Col } from './index'
 function demo() {
   return (
     <>
-      <Row>
+      <Row gutter={30} style={{backgroundColor: '#40a9ff'}}>
         <Col span={12}>Col-12</Col>
         <Col span={12}>Col-12</Col>
       </Row>

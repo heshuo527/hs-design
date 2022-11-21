@@ -27,7 +27,7 @@ export interface IColProps {
 }
 
 const Row: React.FC<RowProps> = (props) => {
-  const cn = 'Row'
+  const cn = 'row'
   const { gutter, className, style, children, ...rest } = props
 
   return (

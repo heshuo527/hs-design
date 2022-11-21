@@ -63,6 +63,8 @@ const Button: React.FC<BUttonProps> = (props) => {
         'my-button-large': size === 'large',
         'my-button-ghost': ghost,
         'my-button-disabled': disabled,
+        /* 'my-button-position-left': position === 'left',
+        'my-button-position-right': position === 'right', */
       })}
       style={style}
       type={htmlType}

@@ -4,7 +4,7 @@ import Affix from '.'
 function demo() {
   return (
     <Affix distance={30}>
-      <div>affix</div>
+      <div className='my-affix-demo'>affix</div>
     </Affix>
   )
 }
