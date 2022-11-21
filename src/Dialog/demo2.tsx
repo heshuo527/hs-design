@@ -3,9 +3,17 @@ import Dialog from '.'
 
 function Demo2() {
   return (
-    <Dialog asyncOpen>
-      async Dialog
-    </Dialog>
+    <>
+      <Dialog onDialogSize='small' type='default'>
+        small Dialog
+      </Dialog>
+      <Dialog onDialogSize='medium' type='danger'>
+        medium Dialog
+      </Dialog>
+      <Dialog onDialogSize='large'>
+        large Dialog
+      </Dialog>
+    </>
   )
 }
 

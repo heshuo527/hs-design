@@ -11,8 +11,8 @@
 />
 <code
   src="./demo2.tsx"
-  title="异步关闭"
-  desc="点击确定后异步提交对话框"
+  title="按钮大小"
+  desc="默认为medium, 可选小, 中, 大"
 />
 
 ## API
@@ -26,6 +26,7 @@
 | okType |	确认按钮类型 |	`default`  `dashed`  `primary`  `danger` |	`primary`
 | cancelText |	取消按钮文字	| `string` |	——
 | cancelType |	取消按钮类型	| `default`  `dashed`  `primary`  `danger` | `default`
+| onDialogSize | 主按钮大小 | `small`  `medium` `large` | `medium`
 | className | 自定义 Dialog 类名 | `string` | —— |
 | onSize | 确认按钮的大小 | `default` `small` | `default` 
 | cancelSize | 取消按钮的大小 | `default` `small` | `default` 

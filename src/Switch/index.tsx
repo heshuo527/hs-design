@@ -27,6 +27,7 @@ const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
   if (!disabled) {
     disabled = false
   }
+
   if (!size) {
     size = 'default'
   }
@@ -36,9 +37,10 @@ const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
       return
     }
     if (onChange) {
-      onChange(!derivedChecked, e)
+      onChange(!checked, e)
     }
   }
+
 
   return (
     <span
@@ -46,7 +48,7 @@ const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
         'my-switch': true,
         'my-switch-default': size === 'default',
         'my-switch-small': size === 'small',
-        'my-switch-checked': checked,
+        'my-switch-checked': checked || derivedChecked,
         'my-switch-disabled': disabled,
       })}
       onClick={handleClick}

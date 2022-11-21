@@ -1,5 +1,0 @@
-
-
-<code
-  ser="./demo.tsx"
-/>

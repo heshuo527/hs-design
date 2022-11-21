@@ -20,6 +20,7 @@ export interface DialogType {
   style?: React.CSSProperties
   className?: string
   maskClosable?: boolean
+  onDialogSize?: 'small' | 'medium' | 'large'
   /**
    * 点击确认按钮的回调
    */
@@ -54,10 +55,14 @@ const Dialog: React.FC<DialogType> = (props) => {
     maskClosable,
     type,
     title,
+    onDialogSize,
     content } = props
 
-  if (!onText) {
-    onText = '完成'
+  if (!onDialogSize) {
+    onDialogSize = 'medium'
+  }
+  if (!cancelText) {
+    cancelText = '取消'
   }
   if (!okType) {
     okType = 'primary'
@@ -127,6 +132,7 @@ const Dialog: React.FC<DialogType> = (props) => {
   return (
     <>
       <Button
+        size={onDialogSize}
         type={type}
         onClick={dialogClick}
       > {children} </Button>

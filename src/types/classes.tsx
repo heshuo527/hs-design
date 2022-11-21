@@ -11,7 +11,7 @@ function buttonClassNames (b: any, t:any) {
     'my-dialog-button-dashed': b === 'dashed',
     'my-dialog-button-primary': b === 'primary',
     'my-dialog-button-danger': b === 'danger',
-    'my-dialog-button-primary-small': t === 'small',
+    'my-dialog-button-small': t === 'small',
 
   }
   return buttonClasses

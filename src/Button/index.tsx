@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import classes from '../utils/classes'
 import './index.less'
 
 export interface BUttonProps {
@@ -69,7 +68,10 @@ const Button: React.FC<BUttonProps> = (props) => {
       type={htmlType}
       disabled={disabled}
       onClick={handleClick}
-      {...rest}>{children}</button>
+      {...rest}
+    >
+      {children}
+    </button>
   )
 }
 
