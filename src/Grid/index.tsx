@@ -1,9 +1,4 @@
-import React from 'react'
+import Row from "./Row";
+import Col from "./Col";
 
-function Grid() {
-  return (
-    <div>demo</div>
-  )
-}
-
-export default Grid
+export {Row, Col}

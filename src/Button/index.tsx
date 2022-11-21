@@ -6,7 +6,7 @@ export interface BUttonProps {
   children?: React.ReactNode;
   type?: 'default' | 'dashed' | 'primary' | 'danger';
   disabled?: boolean;
-  icon?: string
+  icon?: React.ReactNode;
   position?: 'left' | 'right'
   size?: 'small' | 'medium' | 'large'
   ghost?: boolean
@@ -70,6 +70,7 @@ const Button: React.FC<BUttonProps> = (props) => {
       onClick={handleClick}
       {...rest}
     >
+      {props.icon && props.icon}
       {children}
     </button>
   )

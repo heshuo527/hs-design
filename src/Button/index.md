@@ -30,7 +30,11 @@
   title="禁用按钮"
   desc="添加disabled属性后状态为不可点,也不会触发onClick事件"
 />
-
+<code
+  src="./demo5.tsx"
+  title="XXX"
+  desc="YYY"
+/>
 
 ## API
 

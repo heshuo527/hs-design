@@ -1,7 +1,5 @@
 import React from 'react'
-import Grid from '.'
-import Row from './Row'
-import Col from './Col'
+import { Row, Col } from './index'
 
 function demo() {
   return (

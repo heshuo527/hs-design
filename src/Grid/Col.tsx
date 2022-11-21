@@ -21,6 +21,25 @@ export interface IColProps {
 const componentName = 'Col'
 const Col: React.FC<IColProps> = (props) => {
 
+  const cn = componentName
+  const {
+    span,
+    offset,
+    sma,
+    md,
+    lg,
+    xl,
+    className,
+    style,
+    children,
+    ...rest
+  } = props
+
+  let gutter = props.gutter
+  if (!gutter) {
+    gutter = 0
+  }
+
   const getColClassName = () => {
     const {
       gutter,
@@ -42,31 +61,19 @@ const Col: React.FC<IColProps> = (props) => {
       if (className) {
         classNameArr.push(className)
       }
+      console.log('classNameArr', classNameArr);
       return classNameArr
     })
   }
-  const cn = componentName
-  const {
-    gutter,
-    span,
-    offset,
-    sma,
-    md,
-    lg,
-    xl,
-    className,
-    style,
-    children,
-    ...rest
-  } = props
 
   return (
     <div
       className={classes(cn, '', getColClassName())}
       {...rest}
       style={{
-        paddingLeft: `${gutter} / 2}px`,
-        paddingRight: `${gutter} / 2}px`,
+        paddingLeft: `${gutter! / 2}px`,
+        paddingRight: `${gutter! / 2}px`,
+        ...style
       }}
     >
       {children}
