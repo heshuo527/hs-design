@@ -13,9 +13,9 @@ function demo5() {
 
   return (
     <>
-      <Button type='primary' icon={<LoadingIcon loading  size={50}/>} onClick={actOnClick}>Loading</Button>
+      <Button type='primary' icon={<LoadingIcon loading/>} onClick={actOnClick}>Loading</Button>
       <Button type='primary' icon={<ToggleIcon loading={onClickSpin} />} onClick={() => setOnClickSpin(!onClickSpin)} >Click Me</Button>
-      <Button type='primary' icon={<SearchIcon />} >Search</Button>
+      <Button type='primary' icon={<SearchIcon/>} >Search</Button>
       <Button type='primary' icon={<DoneIcon />} >DoneSearch</Button>
     </>
   )

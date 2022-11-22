@@ -7,7 +7,6 @@ export interface BUttonProps {
   type?: 'default' | 'dashed' | 'primary' | 'danger';
   disabled?: boolean;
   icon?: React.ReactNode;
-  position?: 'left' | 'right'
   size?: 'small' | 'medium' | 'large'
   ghost?: boolean
   htmlType?: 'button' | 'submit' | 'reset'
@@ -24,7 +23,6 @@ export interface BUttonProps {
 const Button: React.FC<BUttonProps> = (props) => {
 
   let {
-    position,
     icon,
     loading,
     size,
