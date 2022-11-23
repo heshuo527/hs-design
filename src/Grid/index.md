@@ -1,5 +1,0 @@
-
-
-<code
-  src="./demo.tsx"
-/>

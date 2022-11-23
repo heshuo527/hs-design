@@ -4,7 +4,7 @@ import { MenuContext } from './menu'
 import './index.less'
 
 export interface MenuItemProps {
-  index?: number
+  index?: string
   disabled?: boolean
   className?: string
   style?: React.CSSProperties

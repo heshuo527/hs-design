@@ -91,6 +91,13 @@ export const DoneIcon: React.FunctionComponent<IconProps> = (props) => {
     </Icon >
   )
 }
+export const UpArrowsIcon: React.FunctionComponent<IconProps> = (props) => {
+  return (
+    <Icon {...props}>
+      <path d="M96.196 671.807l415.804-415.632 415.803 415.632-63.616 63.445-352.209-352.017-352.102 352.017z" p-id="8043"></path>
+    </Icon >
+  )
+}
 
 export const ToggleIcon: React.FunctionComponent<IconProps> = (props) => {
   return (

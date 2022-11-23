@@ -5,26 +5,26 @@ import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 
 const testProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   onSelect: jest.fn(),
   className: 'test'
 }
 
 const testVerProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'vertical'
 }
 
 const generateMenu = (props) => {
   return (
     <Menu {...props}>
-      <MenuItem index={0}>
+      <MenuItem index={'0'}>
         cool link
       </MenuItem>
-      <MenuItem index={1} disabled>
+      <MenuItem index={'1'} disabled>
         cool link2
       </MenuItem>
-      <MenuItem index={2}>
+      <MenuItem index={'2'}>
         cool link3
       </MenuItem>
     </Menu>
