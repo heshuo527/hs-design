@@ -45,15 +45,15 @@ const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
   return (
     <span
       className={classnames({
-        'my-switch': true,
-        'my-switch-default': size === 'default',
-        'my-switch-small': size === 'small',
-        'my-switch-checked': checked || derivedChecked,
-        'my-switch-disabled': disabled,
+        'hs-switch': true,
+        'hs-switch-default': size === 'default',
+        'hs-switch-small': size === 'small',
+        'hs-switch-checked': checked || derivedChecked,
+        'hs-switch-disabled': disabled,
       })}
       onClick={handleClick}
     >
-      <span className='my-switch-core'>{children}</span>
+      <span className='hs-switch-core'>{children}</span>
     </span>
   )
 }

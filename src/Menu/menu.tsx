@@ -31,7 +31,7 @@ const Menu: React.FC<MenuProps> = (props) => {
   const [currentActive, setActive] = useState(defaultIndex)
 
   const classes = classNames(
-    'my-menu',
+    'hs-menu',
     className, {
     'menu-vertical': mode === 'vertical',
     'menu-horizontal': mode !== 'vertical'

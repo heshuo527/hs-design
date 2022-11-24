@@ -39,7 +39,7 @@ export interface DialogType {
   onDialog?: (e: React.MouseEvent) => any
 }
 
-const scopedClass = scopedClassMaker('my-dialog')
+const scopedClass = scopedClassMaker('hs-dialog')
 const sc = scopedClass
 
 const Dialog: React.FC<DialogType> = (props) => {

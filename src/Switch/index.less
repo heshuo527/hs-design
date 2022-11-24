@@ -1,6 +1,6 @@
 @import '../style/mixins.less';
 
-.my-switch {
+.hs-switch {
   width: 36px;
   height: 18px;
   position: relative;
@@ -13,7 +13,7 @@
   transition: all .2s linear;
   padding: 2px;
 
-  >.my-switch-core {
+  >.hs-switch-core {
 
     width: 18px;
     height: 18px;
@@ -23,15 +23,15 @@
     transition: all .2s linear;
   }
 
-  &.my-switch-checked {
+  &.hs-switch-checked {
     background-color: @brand;
 
-    >.my-switch-core {
+    >.hs-switch-core {
       transform: translateX(100%);
     }
   }
 
-  &.my-switch-disabled {
+  &.hs-switch-disabled {
     cursor: not-allowed;
     opacity: 0.5;
   }
@@ -51,7 +51,7 @@
     height: 15px;
     padding: 2px;
 
-    >.my-switch-core {
+    >.hs-switch-core {
       width: 15px;
       height: 15px;
     }

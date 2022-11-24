@@ -51,16 +51,16 @@ const Button: React.FC<BUttonProps> = (props) => {
   return (
     <button
       className={classnames({
-        'my-button': true,
-        'my-button-default': type === 'default',
-        'my-button-primary': type === 'primary',
-        'my-button-dashed': type === 'dashed',
-        'my-button-danger': type === 'danger',
-        'my-button-small': size === 'small',
-        'my-button-medium': size === 'medium',
-        'my-button-large': size === 'large',
-        'my-button-ghost': ghost,
-        'my-button-disabled': disabled,
+        'hs-button': true,
+        'hs-button-default': type === 'default',
+        'hs-button-primary': type === 'primary',
+        'hs-button-dashed': type === 'dashed',
+        'hs-button-danger': type === 'danger',
+        'hs-button-small': size === 'small',
+        'hs-button-medium': size === 'medium',
+        'hs-button-large': size === 'large',
+        'hs-button-ghost': ghost,
+        'hs-button-disabled': disabled,
         /* 'my-button-position-left': position === 'left',
         'my-button-position-right': position === 'right', */
       })}

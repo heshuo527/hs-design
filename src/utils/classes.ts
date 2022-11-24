@@ -1,4 +1,4 @@
-const prefix = "my";
+const prefix = "hs";
 
 function classes(componentName: string, ...args: any): string {
   const className = new Array<string>();
