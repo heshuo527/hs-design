@@ -4,17 +4,11 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { Fragment as _Fragment } from "react/jsx-runtime";
 import { jsxs as _jsxs } from "react/jsx-runtime";
 
-var Demo1 = function Demo1() {
+var demo = function demo() {
   return /*#__PURE__*/_jsxs(_Fragment, {
     children: [/*#__PURE__*/_jsx(Button, {
-      type: "default",
-      disabled: false,
-      onClick: function onClick() {
-        return console.log(111);
-      },
       children: "Default"
     }), /*#__PURE__*/_jsx(Button, {
-      disabled: true,
       type: "primary",
       children: "Primary"
     }), /*#__PURE__*/_jsx(Button, {
@@ -27,4 +21,4 @@ var Demo1 = function Demo1() {
   });
 };
 
-export default Demo1;
+export default demo;

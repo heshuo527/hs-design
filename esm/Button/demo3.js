@@ -4,11 +4,10 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { Fragment as _Fragment } from "react/jsx-runtime";
 import { jsxs as _jsxs } from "react/jsx-runtime";
 
-var demo2 = function demo2() {
+var demo3 = function demo3() {
   return /*#__PURE__*/_jsxs(_Fragment, {
     children: [/*#__PURE__*/_jsx(Button, {
       ghost: true,
-      type: "default",
       children: "Default"
     }), /*#__PURE__*/_jsx(Button, {
       ghost: true,
@@ -26,4 +25,4 @@ var demo2 = function demo2() {
   });
 };
 
-export default demo2;
+export default demo3;

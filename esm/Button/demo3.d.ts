@@ -1,2 +1,2 @@
-declare const demo2: () => JSX.Element;
-export default demo2;
+declare const demo3: () => JSX.Element;
+export default demo3;

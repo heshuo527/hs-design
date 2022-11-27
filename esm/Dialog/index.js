@@ -12,12 +12,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 import React, { Fragment, useState } from 'react';
 import Button from "../Button";
-import { scopedClassMaker } from "../types/classes";
+import { scopedClassMaker, buttonClassNames } from "../types/classes";
+import classnames from 'classnames';
 import "./index.less";
+import "../style/base.less";
 import { jsxs as _jsxs } from "react/jsx-runtime";
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Fragment as _Fragment } from "react/jsx-runtime";
-var scopedClass = scopedClassMaker('my-dialog');
+var scopedClass = scopedClassMaker('hs-dialog');
 var sc = scopedClass;
 
 var Dialog = function Dialog(props) {
@@ -27,21 +29,123 @@ var Dialog = function Dialog(props) {
       setOpen = _useState2[1];
 
   var children = props.children,
+      style = props.style,
+      onConfirm = props.onConfirm,
+      onCancel = props.onCancel,
+      onMask = props.onMask,
+      onDialog = props.onDialog;
+  var onText = props.onText,
+      cancelText = props.cancelText,
+      okType = props.okType,
+      cancelType = props.cancelType,
+      onSize = props.onSize,
+      cancelSize = props.cancelSize,
+      maskClosable = props.maskClosable,
+      type = props.type,
       title = props.title,
-      content = props.content,
-      buttonName = props.buttonName;
+      onDialogSize = props.onDialogSize,
+      content = props.content;
+
+  if (!onDialogSize) {
+    onDialogSize = 'medium';
+  }
+
+  if (!cancelText) {
+    cancelText = '取消';
+  }
+
+  if (!okType) {
+    okType = 'primary';
+  }
+
+  if (!title) {
+    title = '标题';
+  }
+
+  if (!content) {
+    content = '内容';
+  }
+
+  if (!cancelType) {
+    cancelType = 'default';
+  }
+
+  if (!onSize) {
+    onSize = 'default';
+  }
+
+  if (!cancelSize) {
+    cancelSize = 'default';
+  }
+
+  if (!maskClosable) {
+    maskClosable = false;
+  }
+
+  if (!type) {
+    type = 'primary';
+  }
+
+  var onTextClick = function onTextClick(event) {
+    if (onConfirm) {
+      onConfirm(event);
+    }
+
+    if (open) {
+      setOpen(!open);
+    }
+  };
+
+  var cancelTextOnClick = function cancelTextOnClick(event) {
+    if (onCancel) {
+      onCancel(event);
+    }
+
+    if (open) {
+      setOpen(!open);
+    }
+  };
+
+  var onMaskOnclick = function onMaskOnclick(event) {
+    if (onMask) {
+      onMask(event);
+    }
+
+    if (open) {
+      setOpen(!open);
+    }
+  };
+
+  var onMaskClosable = function onMaskClosable(event) {
+    if (onMask) {
+      onMask(event);
+    }
+  };
+
+  var dialogClick = function dialogClick(event) {
+    setOpen(!open);
+
+    if (onDialog) {
+      onDialog(event);
+    }
+  };
+
   return /*#__PURE__*/_jsxs(_Fragment, {
     children: [/*#__PURE__*/_jsxs(Button, {
-      type: "primary",
-      onClick: function onClick() {
-        return setOpen(!open);
-      },
+      size: onDialogSize,
+      type: type,
+      onClick: dialogClick,
       children: [" ", children, " "]
     }), open ? /*#__PURE__*/_jsxs(Fragment, {
-      children: [/*#__PURE__*/_jsx("div", {
-        className: sc('mask')
+      children: [maskClosable ? /*#__PURE__*/_jsx("div", {
+        className: sc('mask'),
+        onClick: onMaskOnclick
+      }) : /*#__PURE__*/_jsx("div", {
+        className: sc('mask'),
+        onClick: onMaskClosable
       }), /*#__PURE__*/_jsxs("div", {
         className: sc(''),
+        style: style,
         children: [/*#__PURE__*/_jsx("header", {
           className: sc('tit'),
           children: title
@@ -50,19 +154,15 @@ var Dialog = function Dialog(props) {
           children: content
         }), /*#__PURE__*/_jsxs("footer", {
           className: sc('foo'),
-          children: [/*#__PURE__*/_jsx("button", {
-            onClick: function onClick() {
-              return setOpen(!open);
-            },
-            className: sc('off'),
-            children: buttonName[0]
-          }), /*#__PURE__*/_jsx("button", {
-            onClick: function onClick() {
-              return setOpen(!open);
-            },
-            className: sc('done'),
-            children: buttonName[1]
-          })]
+          children: [cancelText ? /*#__PURE__*/_jsx("button", {
+            onClick: cancelTextOnClick,
+            className: classnames(buttonClassNames(cancelType, cancelSize)),
+            children: cancelText
+          }) : null, " ", onText ? /*#__PURE__*/_jsx("button", {
+            onClick: onTextClick,
+            className: classnames(buttonClassNames(okType, onSize)),
+            children: onText
+          }) : null]
         })]
       })]
     }) : null]

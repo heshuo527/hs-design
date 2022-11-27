@@ -1,9 +1,16 @@
 @import '../style/color.less';
+@import '../style/mixins.less';
 
-a {
-  text-decoration: none;
+/*
+显示区域垂直居中
+*/
+.__dumi-default-previewer-demo {
+  display: flex;
+  align-items: center;
 }
-.my-button {
+
+.hs-button {
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -17,78 +24,262 @@ a {
   border-radius: 4px;
   background-color: #fff;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: .3s;
+  transform: scale(1);
 
-  &.ghost {
+  /* loading动画 */
+  >.hs-icon-loading {
+    animation: button-loading-spin 1s linear infinite;
+  }
+
+  &:hover {
+    color: @brand;
+    border-color: @brand;
+    z-index: 1;
+  }
+
+  &:focus {
+    outline: none;
+    /* color: @brand;
+    border-color: @brand; */
+    z-index: 1;
+  }
+
+  &.hs-button-ghost {
     color: #fff;
+    border: 1px solid;
     border-color: #fff;
     background-color: transparent;
   }
 
-}
-
-.default:hover {
-  outline: none;
-  color: #1890ff;
-  border-color: #1890ff;
-  z-index: 1;
-}
-
-.primary {
-  color: #fff;
-  background-color: primary;
-  border-color: #1890ff;
-
-  &.ghost {
-    color: #1890ff;
-    border-color: #1890ff;
-    background-color: transparent;
+  &.hs-button-disabled {
+    color: rgba(0, 0, 0, 0.25);
+    border-color: #fff;
+    background-color: #e6e6e6;
+    cursor: not-allowed !important;
 
     &:hover {
-      color: #40a9ff;
-      border-color: #40a9ff;
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+    }
+
+    &::after {
+      transition: none !important;
+    }
+  }
+
+  &.hs-button-ghost.hs-button-disabled {
+    background-color: transparent;
+  }
+
+  &-default {
+    border-color: rgba(0, 0, 0, 0.15);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @brand;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+
+    &.hs-button-ghost {
+      border-color: #fff;
+      background-color: transparent;
+
+      &:hover {
+        color: @hover;
+        border-color: @hover;
+      }
+    }
+
+    &.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+      background-color: #e6e6e6;
+      cursor: not-allowed;
+    }
+
+    &.hs-button-ghost.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #fff;
+      background-color: transparent;
+    }
+  }
+
+  &-primary {
+    color: #fff;
+    background-color: @brand;
+    border-color: @brand;
+
+    &:hover {
+      color: #fff;
+      background-color: @hover;
+      border-color: @hover;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @brand;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+
+    &.hs-button-ghost {
+      color: @brand;
+      border-color: @brand;
+      background-color: transparent;
+
+      &:hover {
+        color: @hover;
+        border-color: @hover;
+      }
+    }
+
+    &.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+      background-color: #e6e6e6;
+      cursor: not-allowed;
+    }
+
+    &.hs-button-ghost.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #fff;
+      background-color: transparent;
+    }
+  }
+
+  &-danger {
+    color: @error;
+    border-color: @error;
+    background-color: #fff;
+
+    &:hover {
+      color: #fff;
+      background-color: @error;
+      border-color: @error;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @error;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+
+    &.hs-button-ghost {
+      color: @error;
+      border-color: @error;
+      background-color: transparent;
+
+      &:hover {
+        color: lighten(@error, 10%);
+        border-color: lighten(@error, 10%);
+      }
+    }
+
+    &.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+      background-color: #e6e6e6;
+      cursor: not-allowed;
+    }
+
+    &.hs-button-ghost.hs-button-disabled {
+      border-color: #fff;
+      color: rgba(0, 0, 0, 0.25);
+      background-color: transparent;
+    }
+  }
+
+  &-large {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 6px 15px;
+  }
+
+  &-small {
+    font-size: 12px;
+    line-height: 20px;
+    padding: 2px 10px;
+  }
+
+  &-dashed {
+    border-style: dashed;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 0 6px @brand;
+      opacity: 0;
+      transition: .3s;
+    }
+
+    &:active:not([type="text"])::after {
+      transition: 0s;
+      box-shadow: none;
+      opacity: 0.4;
+    }
+
+    &.hs-button-ghost {
+      border-color: #fff;
+
+      &:hover {
+        color: @hover;
+        border-color: @hover;
+      }
+    }
+
+    &.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #d9d9d9;
+      background-color: #e6e6e6;
+      cursor: not-allowed;
+    }
+
+    &.hs-button-ghost.hs-button-disabled {
+      color: rgba(0, 0, 0, 0.25);
+      border-color: #fff;
+      background-color: transparent;
     }
   }
 }
 
-.primary:hover {
-  background-color: #40a9ff;
-  border-color: #40a9ff;
-}
+@keyframes button-loading-spin {
+  0% {
+    transform: rotateZ(0);
+  }
 
-.dashed {
-  border-style: dashed;
-}
-
-.dashed:hover {
-  border: 1px dashed #1890ff;
-  color: #1890ff;
-}
-
-.danger {
-  color: #f5222d;
-  background-color: #f5f5f5;
-}
-
-.danger:hover {
-  background: #f5222d;
-  color: #f5f5f5;
-}
-
-.small {
-  font-size: 12px;
-  line-height: 20px;
-  padding: 2px 10px;
-}
-
-.medium {
-  font-size: 14px;
-  line-height: 20px;
-  padding: 4px 12px;
-}
-
-.large {
-  font-size: 16px;
-  line-height: 20px;
-  padding: 6px 14px;
+  100% {
+    transform: rotateZ(360deg);
+  }
 }

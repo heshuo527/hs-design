@@ -4,13 +4,12 @@ export interface BUttonProps {
     children?: React.ReactNode;
     type?: 'default' | 'dashed' | 'primary' | 'danger';
     disabled?: boolean;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    icon?: string;
-    position?: 'left' | 'right';
+    icon?: React.ReactNode;
     size?: 'small' | 'medium' | 'large';
     ghost?: boolean;
     htmlType?: 'button' | 'submit' | 'reset';
     loading?: boolean;
+    onClick?: React.MouseEventHandler;
     onMouseEnter?: React.MouseEventHandler;
     onMouseLeave?: React.MouseEventHandler;
     onFocus?: React.FocusEventHandler;

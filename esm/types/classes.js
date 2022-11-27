@@ -4,4 +4,16 @@ function scopedClassMaker(prefix) {
   };
 }
 
-export { scopedClassMaker };
+function buttonClassNames(b, t) {
+  var buttonClasses = {
+    'hs-dialog-button': true,
+    'hs-dialog-button-default': b === 'default',
+    'hs-dialog-button-dashed': b === 'dashed',
+    'hs-dialog-button-primary': b === 'primary',
+    'hs-dialog-button-danger': b === 'danger',
+    'hs-dialog-button-small': t === 'small'
+  };
+  return buttonClasses;
+}
+
+export { scopedClassMaker, buttonClassNames };
