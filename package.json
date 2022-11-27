@@ -1,7 +1,7 @@
 {
-  "private": true,
+  "private": false,
   "name": "hs-design",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "classnames": "^2.3.2",
     "react": "^18.0.0"
   },
   "devDependencies": {
@@ -46,7 +47,7 @@
     "yorkie": "^2.0.0"
   },
   "description": "## 一套好用的 PC 端 React 组件库",
-  "main": ".prettierrc.js",
+  "main": "dist/index.js",
   "directories": {
     "doc": "docs"
   },

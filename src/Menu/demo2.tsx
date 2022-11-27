@@ -1,31 +1,24 @@
-import React from 'react'
-import { Menu, MenuItem, SubMenu } from '.'
+import React from 'react';
+import TransMenu from '.';
 
 const demo = () => {
   return (
-    <Menu mode='vertical' defaultIndex={'0'} onSelect={() => console.log(111)} defaultOpenSubMenu={['3']}>
-      <MenuItem>
-        首页
-      </MenuItem>
-      <MenuItem>
-        作品集
-      </MenuItem>
-      <MenuItem disabled>
-        关于我们
-      </MenuItem>
-      <SubMenu title='dropdown' >
-        <MenuItem>
-          dropdown 1
-        </MenuItem>
-        <MenuItem>
-          dropdown 2
-        </MenuItem>
-      </SubMenu>
-      <MenuItem>
-        常见问题
-      </MenuItem>
-    </Menu>
-  )
-}
+    <TransMenu
+      mode="vertical"
+      defaultIndex={'0'}
+      onSelect={() => console.log(111)}
+      defaultOpenSubMenu={['3']}
+    >
+      <TransMenu.Item>首页</TransMenu.Item>
+      <TransMenu.Item>作品集</TransMenu.Item>
+      <TransMenu.Item disabled>关于我们</TransMenu.Item>
+      <TransMenu.SubMenu title="dropdown">
+        <TransMenu.Item>dropdown 1</TransMenu.Item>
+        <TransMenu.Item>dropdown 2</TransMenu.Item>
+      </TransMenu.SubMenu>
+      <TransMenu.Item>常见问题</TransMenu.Item>
+    </TransMenu>
+  );
+};
 
-export default demo
+export default demo;
