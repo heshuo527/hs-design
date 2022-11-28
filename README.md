@@ -1,6 +1,6 @@
-# HS-Design
+# hs-design
 
-## 一套好用的 PC 端 React 组件库
+## 一套好用的 React PC 端组件库
 
 > 本组件库仅供学习交流，请勿在生产环境中使用!!!
 
@@ -14,13 +14,14 @@ $ yarn add hs-design
 ## 使用
 
 ```javascript
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
 import { Button } from 'hs-design';
 import 'hs-design/es/Button/index.css';
 
 const Demo: React.FC = () => {
-  return <Button>click me</Button>;
+  return (
+    <Button>click me</Button>;
+  )
 };
 export default Demo;
 ```
