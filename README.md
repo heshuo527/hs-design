@@ -7,24 +7,22 @@
 ## 安装
 
 ```
-$ npm install HS-Design
-$ yarn add HS-Design
+$ npm install hs-design
+$ yarn add hs-design
 ```
 
 ## 使用
 
 ```javascript
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { Button } from 'hs-design'
-import 'hs-design/lib/hs-design.css'
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Button } from 'hs-design';
+import 'hs-design/es/Button/index.css';
 
-ReactDOM.render(
-  <div>
-    <Button>Default</Button>
-  </div>,
-  mountNode
-)
+const Demo: React.FC = () => {
+  return <Button>click me</Button>;
+};
+export default Demo;
 ```
 
 需要注意的是，样式文件需要单独引入。

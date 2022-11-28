@@ -15,7 +15,6 @@ export default defineConfig({
   publicPath: '/hs-design' + '/', // 打包文件时，引入地址生成 publicPath/xxx.js
   exportStatic: {}, // 对每隔路由输出html
   dynamicImport: {}, // 动态导入
-
   hash: true, //加hash配置，清除缓存
   manifest: {
     // 内部发布系统规定必须配置

@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "hs-design",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -14,10 +14,10 @@
     "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist"
+    "es"
   ],
-  "module": "dist/esm/index.js",
-  "typings": "dist/esm/index.d.ts",
+  "module": "es/index.js",
+  "typings": "es/index.d.ts",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -40,14 +40,14 @@
     "@umijs/fabric": "^2.8.1",
     "@umijs/test": "^3.0.5",
     "dumi": "^1.1.0",
-    "father": "^4.0.0-rc.2",
+    "father": "^2.0.0",
     "gh-pages": "^4.0.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
   },
   "description": "## 一套好用的 PC 端 React 组件库",
-  "main": "dist/index.js",
+  "main": "dist/umd",
   "directories": {
     "doc": "docs"
   },
@@ -60,5 +60,5 @@
   "bugs": {
     "url": "https://github.com/heshuo527/my_dumi/issues"
   },
-  "homepage": "https://github.com/heshuo527/my_dumi#readme"
+  "homepage": "https://heshuo527.github.io/hs-design"
 }
