@@ -1,11 +1,7 @@
 {
   "private": false,
   "name": "hs-design",
-<<<<<<< HEAD
   "version": "1.0.6",
-=======
-  "version": "1.0.2",
->>>>>>> 9ae3b08692124bc495b231fdab2ea3a0dc8d18ea
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
