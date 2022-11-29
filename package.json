@@ -7,7 +7,7 @@
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "father build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d docs-dist",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
@@ -54,12 +54,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heshuo527/hs_design.git"
+    "url": "git+https://github.com/heshuo527/hs-design.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heshuo527/hs_design/issues"
+    "url": "https://github.com/heshuo527/hs-design/issues"
   },
   "homepage": "https://heshuo527.github.io/hs-design"
 }

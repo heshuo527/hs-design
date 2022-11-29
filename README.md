@@ -16,7 +16,7 @@ $ yarn add hs-design
 ```javascript
 import React from 'react';
 import { Button } from 'hs-design';
-import 'hs-design/es/Button/index.css';
+// 样式已打包好, 无需额外引入
 
 const Demo: React.FC = () => {
   return (
@@ -25,5 +25,3 @@ const Demo: React.FC = () => {
 };
 export default Demo;
 ```
-
-需要注意的是，样式文件需要单独引入。
