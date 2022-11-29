@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "hs-design",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -30,6 +30,7 @@
     ]
   },
   "dependencies": {
+    "babel-plugin-import": "^1.13.5",
     "classnames": "^2.3.2",
     "react": "^18.0.0"
   },
@@ -53,12 +54,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heshuo527/my_dumi.git"
+    "url": "git+https://github.com/heshuo527/hs_design.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/heshuo527/my_dumi/issues"
+    "url": "https://github.com/heshuo527/hs_design/issues"
   },
   "homepage": "https://heshuo527.github.io/hs-design"
 }
