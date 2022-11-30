@@ -1,19 +1,18 @@
-import React, { useState } from 'react'
-import Switch from '.'
+import React, { useState } from 'react';
+import { Switch } from 'hs-design';
 
 function demo4() {
-
-  const [checked, setChecked] = useState(false)
-  const [isChecked, setIsChecked] = useState(true)
+  const [checked, setChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(true);
 
   return (
     <>
-      <Switch checked={checked} onChange={() => setChecked(!checked)} ></Switch>
+      <Switch checked={checked} onChange={() => setChecked(!checked)}></Switch>
       <br />
       <br />
-      <Switch checked={isChecked} onChange={() => setIsChecked(!isChecked)} ></Switch>
+      <Switch checked={isChecked} onChange={() => setIsChecked(!isChecked)}></Switch>
     </>
-  )
+  );
 }
 
-export default demo4
+export default demo4;

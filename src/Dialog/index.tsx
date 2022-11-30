@@ -1,52 +1,52 @@
-import React, { Fragment, useState } from 'react'
-import Button from '../Button'
-import { scopedClassMaker, buttonClassNames } from '../types/classes'
-import classnames from 'classnames'
-import './index.less'
-import '../style/base.less'
+import React, { Fragment, useState } from 'react';
+import { Button } from 'hs-design';
+import { scopedClassMaker, buttonClassNames } from '../types/classes';
+import classnames from 'classnames';
+import './index.less';
+import '../style/base.less';
 
 export interface DialogType {
-  asyncOpen?: boolean
-  children?: React.ReactNode
-  title?: any
-  content?: any
-  onText?: string
-  okType?: 'default' | 'dashed' | 'primary' | 'danger'
-  cancelText?: string
-  cancelType?: 'default' | 'dashed' | 'primary' | 'danger'
-  type?: 'default' | 'dashed' | 'primary' | 'danger'
-  onSize?: 'small' | 'default'
-  cancelSize?: 'small' | 'default'
-  style?: React.CSSProperties
-  className?: string
-  maskClosable?: boolean
-  onDialogSize?: 'small' | 'medium' | 'large'
+  asyncOpen?: boolean;
+  children?: React.ReactNode;
+  title?: any;
+  content?: any;
+  onText?: string;
+  okType?: 'default' | 'dashed' | 'primary' | 'danger';
+  cancelText?: string;
+  cancelType?: 'default' | 'dashed' | 'primary' | 'danger';
+  type?: 'default' | 'dashed' | 'primary' | 'danger';
+  onSize?: 'small' | 'default';
+  cancelSize?: 'small' | 'default';
+  style?: React.CSSProperties;
+  className?: string;
+  maskClosable?: boolean;
+  onDialogSize?: 'small' | 'medium' | 'large';
   /**
    * 点击确认按钮的回调
    */
-  onConfirm?: (e: React.MouseEvent) => any
+  onConfirm?: (e: React.MouseEvent) => any;
   /**
    * 点击取消按钮的回调
    */
-  onCancel?: (e: React.MouseEvent) => any
+  onCancel?: (e: React.MouseEvent) => any;
   /**
    * 点击蒙版时的回调
    */
-  onMask?: (e: React.MouseEvent) => any
+  onMask?: (e: React.MouseEvent) => any;
   /**
    * 点击主按钮时的回调
    */
-  onDialog?: (e: React.MouseEvent) => any
+  onDialog?: (e: React.MouseEvent) => any;
 }
 
-const scopedClass = scopedClassMaker('hs-dialog')
-const sc = scopedClass
+const scopedClass = scopedClassMaker('hs-dialog');
+const sc = scopedClass;
 
 const Dialog: React.FC<DialogType> = (props) => {
-
-  const [open, setOpen] = useState<Boolean>(false)
-  const { children, style, onConfirm, onCancel, onMask, onDialog } = props
-  let { onText,
+  const [open, setOpen] = useState<Boolean>(false);
+  const { children, style, onConfirm, onCancel, onMask, onDialog } = props;
+  let {
+    onText,
     cancelText,
     okType,
     cancelType,
@@ -56,127 +56,119 @@ const Dialog: React.FC<DialogType> = (props) => {
     type,
     title,
     onDialogSize,
-    content } = props
+    content,
+  } = props;
 
   if (!onDialogSize) {
-    onDialogSize = 'medium'
+    onDialogSize = 'medium';
   }
   if (!cancelText) {
-    cancelText = '取消'
+    cancelText = '取消';
   }
   if (!okType) {
-    okType = 'primary'
+    okType = 'primary';
   }
   if (!title) {
-    title = '标题'
+    title = '标题';
   }
   if (!content) {
-    content = '内容'
+    content = '内容';
   }
   if (!cancelType) {
-    cancelType = 'default'
+    cancelType = 'default';
   }
   if (!onSize) {
-    onSize = 'default'
+    onSize = 'default';
   }
   if (!cancelSize) {
-    cancelSize = 'default'
+    cancelSize = 'default';
   }
   if (!maskClosable) {
-    maskClosable = false
+    maskClosable = false;
   }
   if (!type) {
-    type = 'primary'
+    type = 'primary';
   }
 
   const onTextClick = (event: React.MouseEvent) => {
     if (onConfirm) {
-      onConfirm(event)
+      onConfirm(event);
     }
     if (open) {
-      setOpen(!open)
+      setOpen(!open);
     }
-  }
+  };
 
   const cancelTextOnClick = (event: React.MouseEvent) => {
     if (onCancel) {
-      onCancel(event)
+      onCancel(event);
     }
     if (open) {
-      setOpen(!open)
+      setOpen(!open);
     }
-  }
+  };
 
   const onMaskOnclick = (event: React.MouseEvent) => {
     if (onMask) {
-      onMask(event)
+      onMask(event);
     }
     if (open) {
-      setOpen(!open)
+      setOpen(!open);
     }
-  }
+  };
 
   const onMaskClosable = (event: React.MouseEvent) => {
     if (onMask) {
-      onMask(event)
+      onMask(event);
     }
-  }
+  };
 
   const dialogClick = (event: React.MouseEvent) => {
-    setOpen(!open)
+    setOpen(!open);
     if (onDialog) {
-      onDialog(event)
+      onDialog(event);
     }
-  }
+  };
 
   return (
     <>
-      <Button
-        size={onDialogSize}
-        type={type}
-        onClick={dialogClick}
-      > {children} </Button>
-      {
-        open ?
-          <Fragment>
-            {
-              maskClosable ?
-                <div
-                  className={sc('mask')}
-                  onClick={onMaskOnclick}
-                ></div> : <div
-                  className={sc('mask')}
-                  onClick={onMaskClosable}
-                ></div>
-            }
-            <div
-              className={sc('')}
-              style={style}
-            >
-              <header className={sc('tit')}>{title}</header>
-              <nav className={sc('con')}>{content}</nav>
-              <footer className={sc('foo')}>
-                {
-                  cancelText ?
-                    <button onClick={cancelTextOnClick}
-                      className={classnames(buttonClassNames(cancelType, cancelSize))}
-                    >{cancelText}</button> :
-                    null
-                } {
-                  onText ?
-                    <button
-                      onClick={onTextClick}
-                      className={classnames(buttonClassNames(okType, onSize))}
-                    >{onText}</button> :
-                    null
-                }
-              </footer>
-            </div>
-          </Fragment>
-          : null
-      }
+      <Button size={onDialogSize} type={type} onClick={dialogClick}>
+        {' '}
+        {children}{' '}
+      </Button>
+      {open ? (
+        <Fragment>
+          {maskClosable ? (
+            <div className={sc('mask')} onClick={onMaskOnclick}></div>
+          ) : (
+            <div className={sc('mask')} onClick={onMaskClosable}></div>
+          )}
+          <div className={sc('')} style={style}>
+            <header className={sc('tit')}>{title}</header>
+            <nav className={sc('con')}>{content}</nav>
+            <footer className={sc('foo')}>
+              {cancelText ? (
+                <button
+                  onClick={cancelTextOnClick}
+                  className={classnames(buttonClassNames(cancelType, cancelSize))}
+                >
+                  {cancelText}
+                </button>
+              ) : null}{' '}
+              {onText ? (
+                <button
+                  onClick={onTextClick}
+                  className={classnames(buttonClassNames(okType, onSize))}
+                >
+                  {onText}
+                </button>
+              ) : null}
+            </footer>
+          </div>
+        </Fragment>
+      ) : null}
     </>
-  )
-}
+  );
+};
 
-export default Dialog
+export default Dialog;

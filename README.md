@@ -16,7 +16,7 @@ $ yarn add hs-design
 ```javascript
 import React from 'react';
 import { Button } from 'hs-design';
-// 样式已打包好, 无需额外引入
+///
 
 const Demo: React.FC = () => {
   return (
@@ -25,3 +25,5 @@ const Demo: React.FC = () => {
 };
 export default Demo;
 ```
+
+使用本组件库需要安装 babel-plugin-import 插件 npm install babel-plugin-import or yarn add babel-plugin-import

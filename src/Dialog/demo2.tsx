@@ -1,20 +1,18 @@
-import React from 'react'
-import Dialog from '.'
+import React from 'react';
+import { Dialog } from 'hs-design';
 
 function Demo2() {
   return (
     <>
-      <Dialog onDialogSize='small' type='default'>
+      <Dialog onDialogSize="small" type="default">
         small Dialog
       </Dialog>
-      <Dialog onDialogSize='medium' type='danger'>
+      <Dialog onDialogSize="medium" type="danger">
         medium Dialog
       </Dialog>
-      <Dialog onDialogSize='large'>
-        large Dialog
-      </Dialog>
+      <Dialog onDialogSize="large">large Dialog</Dialog>
     </>
-  )
+  );
 }
 
-export default Demo2
+export default Demo2;

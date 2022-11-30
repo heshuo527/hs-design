@@ -1,32 +1,32 @@
 @import '../style/mixins.less';
 
 .hs-switch {
-  width: 36px;
-  height: 18px;
   position: relative;
   display: inline-flex;
+  box-sizing: content-box !important;
+  width: 36px;
+  height: 18px;
+  margin-right: 20px;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.25);
   border-color: @brand;
   border-radius: 11px;
-  margin-right: 20px;
-  background-color: rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  transition: all .2s linear;
-  padding: 2px;
+  transition: all 0.2s linear;
 
-  >.hs-switch-core {
-
+  > .hs-switch-core {
     width: 18px;
     height: 18px;
-    border-radius: 50%;
     background-color: #fff;
+    border-radius: 50%;
     transform: translateX(0);
-    transition: all .2s linear;
+    transition: all 0.2s linear;
   }
 
   &.hs-switch-checked {
     background-color: @brand;
 
-    >.hs-switch-core {
+    > .hs-switch-core {
       transform: translateX(100%);
     }
   }
@@ -40,10 +40,10 @@
     float: right;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
     background-color: #fff;
+    border-radius: 50%;
     transform: translateX(0);
-    transition: all .2s linear;
+    transition: all 0.2s linear;
   }
 
   &-small {
@@ -51,7 +51,7 @@
     height: 15px;
     padding: 2px;
 
-    >.hs-switch-core {
+    > .hs-switch-core {
       width: 15px;
       height: 15px;
     }

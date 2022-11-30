@@ -1,61 +1,53 @@
 @import '../style/color.less';
 @import '../style/mixins.less';
 
-/*
-显示区域垂直居中
-*/
-.__dumi-default-previewer-demo {
-  display: flex;
-  align-items: center;
-}
-
 .hs-button {
   position: relative;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  padding: 4px 15px;
+  color: rgba(0, 0, 0, 0.65);
   font-size: 14px;
   line-height: 22px;
-  padding: 4px 15px;
-  margin-right: 20px;
+  background-color: #fff;
   border: 1px solid;
-  color: rgba(0, 0, 0, 0.65);
   border-color: rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  background-color: #fff;
-  cursor: pointer;
-  transition: .3s;
   transform: scale(1);
+  cursor: pointer;
+  transition: 0.3s;
 
   /* loading动画 */
-  >.hs-icon-loading {
+  > .hs-icon-loading {
     animation: button-loading-spin 1s linear infinite;
   }
 
   &:hover {
+    z-index: 1;
     color: @brand;
     border-color: @brand;
-    z-index: 1;
   }
 
   &:focus {
-    outline: none;
     /* color: @brand;
     border-color: @brand; */
     z-index: 1;
+    outline: none;
   }
 
   &.hs-button-ghost {
     color: #fff;
+    background-color: transparent;
     border: 1px solid;
     border-color: #fff;
-    background-color: transparent;
   }
 
   &.hs-button-disabled {
     color: rgba(0, 0, 0, 0.25);
-    border-color: #fff;
     background-color: #e6e6e6;
+    border-color: #fff;
     cursor: not-allowed !important;
 
     &:hover {
@@ -76,24 +68,24 @@
     border-color: rgba(0, 0, 0, 0.15);
 
     &::after {
-      content: '';
       position: absolute;
-      inset: 0;
       border-radius: inherit;
       box-shadow: 0 0 0 6px @brand;
       opacity: 0;
-      transition: .3s;
+      transition: 0.3s;
+      content: '';
+      inset: 0;
     }
 
-    &:active:not([type="text"])::after {
-      transition: 0s;
+    &:active:not([type='text'])::after {
       box-shadow: none;
       opacity: 0.4;
+      transition: 0s;
     }
 
     &.hs-button-ghost {
-      border-color: #fff;
       background-color: transparent;
+      border-color: #fff;
 
       &:hover {
         color: @hover;
@@ -103,15 +95,15 @@
 
     &.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #d9d9d9;
       background-color: #e6e6e6;
+      border-color: #d9d9d9;
       cursor: not-allowed;
     }
 
     &.hs-button-ghost.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #fff;
       background-color: transparent;
+      border-color: #fff;
     }
   }
 
@@ -127,25 +119,25 @@
     }
 
     &::after {
-      content: '';
       position: absolute;
-      inset: 0;
       border-radius: inherit;
       box-shadow: 0 0 0 6px @brand;
       opacity: 0;
-      transition: .3s;
+      transition: 0.3s;
+      content: '';
+      inset: 0;
     }
 
-    &:active:not([type="text"])::after {
-      transition: 0s;
+    &:active:not([type='text'])::after {
       box-shadow: none;
       opacity: 0.4;
+      transition: 0s;
     }
 
     &.hs-button-ghost {
       color: @brand;
-      border-color: @brand;
       background-color: transparent;
+      border-color: @brand;
 
       &:hover {
         color: @hover;
@@ -155,22 +147,22 @@
 
     &.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #d9d9d9;
       background-color: #e6e6e6;
+      border-color: #d9d9d9;
       cursor: not-allowed;
     }
 
     &.hs-button-ghost.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #fff;
       background-color: transparent;
+      border-color: #fff;
     }
   }
 
   &-danger {
     color: @error;
-    border-color: @error;
     background-color: #fff;
+    border-color: @error;
 
     &:hover {
       color: #fff;
@@ -179,25 +171,25 @@
     }
 
     &::after {
-      content: '';
       position: absolute;
-      inset: 0;
       border-radius: inherit;
       box-shadow: 0 0 0 6px @error;
       opacity: 0;
-      transition: .3s;
+      transition: 0.3s;
+      content: '';
+      inset: 0;
     }
 
-    &:active:not([type="text"])::after {
-      transition: 0s;
+    &:active:not([type='text'])::after {
       box-shadow: none;
       opacity: 0.4;
+      transition: 0s;
     }
 
     &.hs-button-ghost {
       color: @error;
-      border-color: @error;
       background-color: transparent;
+      border-color: @error;
 
       &:hover {
         color: lighten(@error, 10%);
@@ -207,47 +199,47 @@
 
     &.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #d9d9d9;
       background-color: #e6e6e6;
+      border-color: #d9d9d9;
       cursor: not-allowed;
     }
 
     &.hs-button-ghost.hs-button-disabled {
-      border-color: #fff;
       color: rgba(0, 0, 0, 0.25);
       background-color: transparent;
+      border-color: #fff;
     }
   }
 
   &-large {
+    padding: 6px 15px;
     font-size: 16px;
     line-height: 24px;
-    padding: 6px 15px;
   }
 
   &-small {
+    padding: 2px 10px;
     font-size: 12px;
     line-height: 20px;
-    padding: 2px 10px;
   }
 
   &-dashed {
     border-style: dashed;
 
     &::after {
-      content: '';
       position: absolute;
-      inset: 0;
       border-radius: inherit;
       box-shadow: 0 0 0 6px @brand;
       opacity: 0;
-      transition: .3s;
+      transition: 0.3s;
+      content: '';
+      inset: 0;
     }
 
-    &:active:not([type="text"])::after {
-      transition: 0s;
+    &:active:not([type='text'])::after {
       box-shadow: none;
       opacity: 0.4;
+      transition: 0s;
     }
 
     &.hs-button-ghost {
@@ -261,15 +253,15 @@
 
     &.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #d9d9d9;
       background-color: #e6e6e6;
+      border-color: #d9d9d9;
       cursor: not-allowed;
     }
 
     &.hs-button-ghost.hs-button-disabled {
       color: rgba(0, 0, 0, 0.25);
-      border-color: #fff;
       background-color: transparent;
+      border-color: #fff;
     }
   }
 }
