@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch } from 'hs-design';
 
 function demo2() {
-  const [checked, setChecked] = useState(false);
-  const [isChecked, setIsChecked] = useState(false);
-
   return (
     <>
-      <Switch checked={checked} size="small" onChange={() => setChecked(!checked)}></Switch>
+      <Switch size="small"></Switch>
       <br />
       <br />
-      <Switch checked={isChecked} onChange={() => setIsChecked(!isChecked)}></Switch>
+      <Switch></Switch>
     </>
   );
 }

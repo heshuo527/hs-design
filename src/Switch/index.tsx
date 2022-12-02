@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 import './index.less';
 
@@ -11,34 +11,42 @@ export interface SwitchProps {
   children?: React.ReactNode;
   disabled?: Boolean;
   size?: 'small' | 'default';
-  onChange?: (checked: boolean, e: React.MouseEvent) => any;
+  onChange?: React.MouseEventHandler;
+  onClick?: React.MouseEventHandler;
   style?: React.CSSProperties;
 }
 
-export interface SwitchState {
-  derivedChecked?: boolean;
+export interface toggleProps {
+  toggleChecked?: Boolean;
 }
 
-const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
-  const { children, onChange } = props;
-  let { size, disabled, checked, derivedChecked } = props;
-
-  if (!disabled) {
-    disabled = false;
+const Switch: React.FC<SwitchProps & toggleProps> = (props) => {
+  if (!props.checked) {
+    props.checked === false;
   }
 
-  if (!size) {
+  const [checked, setChecked] = useState(props.checked);
+  const { children, onChange, onClick } = props;
+
+  let { size, disabled } = props;
+  if (!disabled && !size) {
+    disabled = false;
     size = 'default';
   }
 
-  const handleClick: React.MouseEventHandler = (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (disabled) {
       return;
     }
     if (onChange) {
-      onChange(!checked, e);
+      onChange(e);
     }
+    if (onClick) {
+      onClick(e);
+    }
+    setChecked(!checked);
   };
+  console.log(props.checked);
 
   return (
     <span
@@ -46,7 +54,7 @@ const Switch: React.FC<SwitchProps & SwitchState> = (props) => {
         'hs-switch': true,
         'hs-switch-default': size === 'default',
         'hs-switch-small': size === 'small',
-        'hs-switch-checked': checked || derivedChecked,
+        'hs-switch-checked': props.toggleChecked || checked,
         'hs-switch-disabled': disabled,
       })}
       onClick={handleClick}
