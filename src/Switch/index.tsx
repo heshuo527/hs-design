@@ -14,13 +14,10 @@ export interface SwitchProps {
   onChange?: React.MouseEventHandler;
   onClick?: React.MouseEventHandler;
   style?: React.CSSProperties;
-}
-
-export interface toggleProps {
   toggleChecked?: Boolean;
 }
 
-const Switch: React.FC<SwitchProps & toggleProps> = (props) => {
+const Switch: React.FC<SwitchProps> = (props) => {
   if (!props.checked) {
     props.checked === false;
   }
@@ -44,9 +41,10 @@ const Switch: React.FC<SwitchProps & toggleProps> = (props) => {
     if (onClick) {
       onClick(e);
     }
-    setChecked(!checked);
+    if (checked !== undefined) {
+      setChecked(!checked);
+    }
   };
-  console.log(props.checked);
 
   return (
     <span
@@ -54,7 +52,8 @@ const Switch: React.FC<SwitchProps & toggleProps> = (props) => {
         'hs-switch': true,
         'hs-switch-default': size === 'default',
         'hs-switch-small': size === 'small',
-        'hs-switch-checked': props.toggleChecked || checked,
+        'hs-switch-checked': checked,
+        'hs-switch-checked-toggle': props.toggleChecked,
         'hs-switch-disabled': disabled,
       })}
       onClick={handleClick}

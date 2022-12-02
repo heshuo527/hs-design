@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import Switch from '.';
+import { Switch } from 'hs-design';
 import { Button } from 'hs-design';
 
 function demo5() {
-  const [ischecked, setChecked] = useState(false);
+  const [isChecked, setChecked] = useState(false);
+  const [isDisabled, setDisabled] = useState(false);
 
   return (
     <>
-      <Switch toggleChecked={ischecked}></Switch>
-      <br />
-      <br />
-      <Button type="primary" onClick={() => setChecked(!ischecked)}>
+      <Switch toggleChecked={isChecked}></Switch>
+      <Button type="primary" onClick={() => setChecked(!isChecked)}>
         Toggle Checked
+      </Button>
+      <Switch disabled={isDisabled}></Switch>
+      <Button type="primary" onClick={() => setDisabled(!isDisabled)}>
+        Toggle Disabled
       </Button>
     </>
   );

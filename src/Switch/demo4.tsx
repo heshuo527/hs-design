@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Switch from '.';
+import { Switch } from 'hs-design';
 
 function demo4() {
   return (
     <>
-      <Switch></Switch>
+      <Switch checked={false}></Switch>
       <Switch checked></Switch>
     </>
   );
