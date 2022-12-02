@@ -1,0 +1,49 @@
+.hs-alert {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  &-default {
+    color: #fff;
+    background: #0d6efd;
+    border-color: #0262ef;
+  }
+
+  &-success {
+    color: #fff;
+    background: #52c41a;
+    border-color: #49ad17;
+  }
+
+  &-warning {
+    color: #fff;
+    background: #fadb14;
+    border-color: #efd005;
+  }
+
+  &-danger {
+    color: #fff;
+    background: #dc3545;
+    border-color: #d32535;
+  }
+
+  > .hs-alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  > .bold-title {
+    font-weight: 700;
+  }
+
+  > &.hs-alert-desc {
+    margin: 0.3rem 0 0;
+    font-size: 0.875rem;
+  }
+}
