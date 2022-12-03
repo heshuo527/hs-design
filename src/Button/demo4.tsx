@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'hs-design';
+import Button from '.';
 
 function demo4() {
   const demoOnClick = () => {

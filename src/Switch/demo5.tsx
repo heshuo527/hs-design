@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Switch } from 'hs-design';
-import { Button } from 'hs-design';
+import Switch from '.';
+import Button from '../Button';
 
 function demo5() {
   const [isChecked, setChecked] = useState(false);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'hs-design';
+import Button from '.';
 import {
   MyIcon,
   SettingIcon,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog } from 'hs-design';
+import Dialog from '.';
 
 function Demo2() {
   return (

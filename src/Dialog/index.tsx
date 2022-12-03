@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Button } from 'hs-design';
+import Button from '../Button';
 import { scopedClassMaker, buttonClassNames } from '../types/classes';
 import classnames from 'classnames';
 import './index.less';
@@ -59,9 +59,6 @@ const Dialog: React.FC<DialogType> = (props) => {
     content,
   } = props;
 
-  if (!onDialogSize) {
-    onDialogSize = 'medium';
-  }
   if (!cancelText) {
     cancelText = '取消';
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'hs-design';
+import Switch from '.';
 
 function demo1() {
   return <Switch checked={false}></Switch>;

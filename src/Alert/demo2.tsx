@@ -1,5 +1,4 @@
 import React from 'react';
-import { FillIcon, ErrorIcon } from '..//icon/Icon';
 import Alert from '.';
 
 function demo() {
