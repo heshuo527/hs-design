@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Switch from '.';
+import React from 'react';
+import { Switch } from 'hs-design';
 
 function demo3() {
   return (

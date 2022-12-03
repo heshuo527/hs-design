@@ -9,6 +9,10 @@
     "strict": true,
     "skipLibCheck": true,
     "declaration": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "paths": {
+      "@/*": ["./src/*"],
+      "hs-design": ["./src/index.ts"]
+    }
   }
 }

@@ -18,18 +18,13 @@ export interface SwitchProps {
 }
 
 const Switch: React.FC<SwitchProps> = (props) => {
+  const { size, disabled } = props;
   if (!props.checked) {
     props.checked === false;
   }
 
   const [checked, setChecked] = useState(props.checked);
   const { children, onChange, onClick } = props;
-
-  let { size, disabled } = props;
-  if (!disabled && !size) {
-    disabled = false;
-    size = 'default';
-  }
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (disabled) {
@@ -61,6 +56,11 @@ const Switch: React.FC<SwitchProps> = (props) => {
       <span className="hs-switch-core">{children}</span>
     </span>
   );
+};
+
+Switch.defaultProps = {
+  disabled: false,
+  size: 'default',
 };
 
 export default Switch;

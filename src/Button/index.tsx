@@ -1,28 +1,27 @@
-import React from 'react'
-import classnames from 'classnames'
-import './index.less'
+import React from 'react';
+import classnames from 'classnames';
+import './index.less';
 
 export interface BUttonProps {
   children?: React.ReactNode;
   type?: 'default' | 'dashed' | 'primary' | 'danger';
   disabled?: boolean;
   icon?: React.ReactNode;
-  size?: 'small' | 'medium' | 'large'
-  ghost?: boolean
-  htmlType?: 'button' | 'submit' | 'reset'
-  loading?: boolean
-  onClick?: React.MouseEventHandler
-  onMouseEnter?: React.MouseEventHandler
-  onMouseLeave?: React.MouseEventHandler
-  onFocus?: React.FocusEventHandler
-  onBlur?: React.FocusEventHandler
-  className?: string
-  style?: React.CSSProperties
+  size?: 'small' | 'medium' | 'large';
+  ghost?: boolean;
+  htmlType?: 'button' | 'submit' | 'reset';
+  loading?: boolean;
+  onClick?: React.MouseEventHandler;
+  onMouseEnter?: React.MouseEventHandler;
+  onMouseLeave?: React.MouseEventHandler;
+  onFocus?: React.FocusEventHandler;
+  onBlur?: React.FocusEventHandler;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const Button: React.FC<BUttonProps> = (props) => {
-
-  let {
+  const {
     icon,
     loading,
     size,
@@ -34,19 +33,16 @@ const Button: React.FC<BUttonProps> = (props) => {
     disabled,
     children,
     ...rest
-  } = props
+  } = props;
 
-  if (!type) {
-    type = 'default'
-  }
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (disabled) {
-      return
+      return;
     }
     if (props.onClick) {
       props.onClick(event);
     }
-  }
+  };
 
   return (
     <button
@@ -61,8 +57,6 @@ const Button: React.FC<BUttonProps> = (props) => {
         'hs-button-large': size === 'large',
         'hs-button-ghost': ghost,
         'hs-button-disabled': disabled,
-        /* 'my-button-position-left': position === 'left',
-        'my-button-position-right': position === 'right', */
       })}
       style={style}
       type={htmlType}
@@ -73,7 +67,11 @@ const Button: React.FC<BUttonProps> = (props) => {
       {props.icon && props.icon}
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+Button.defaultProps = {
+  type: 'default',
+};
+
+export default Button;

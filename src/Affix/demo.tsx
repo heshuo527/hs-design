@@ -1,5 +1,5 @@
 import React from 'react';
-import Affix from '.';
+import { Affix } from 'hs-design';
 
 function demo() {
   return (

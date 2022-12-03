@@ -1,5 +1,5 @@
 import React from 'react';
-import TransMenu from '.';
+import { TransMenu } from 'hs-design';
 
 const demo = () => {
   return (

@@ -5,7 +5,7 @@ import Transition from '../utils/transition';
 import './index.less';
 
 export interface AlertProps {
-  title: string;
+  title?: string;
   /**
    * 描述
    */
@@ -48,6 +48,12 @@ const Alert: React.FC<AlertProps> = (props) => {
       </div>
     </Transition>
   );
+};
+
+Alert.defaultProps = {
+  title: '请添加title属性修改内容哦',
+  closable: true,
+  type: 'default',
 };
 
 export default Alert;

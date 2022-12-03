@@ -45,7 +45,7 @@ const sc = scopedClass;
 const Dialog: React.FC<DialogType> = (props) => {
   const [open, setOpen] = useState<Boolean>(false);
   const { children, style, onConfirm, onCancel, onMask, onDialog } = props;
-  let {
+  const {
     onText,
     cancelText,
     okType,
@@ -58,34 +58,6 @@ const Dialog: React.FC<DialogType> = (props) => {
     onDialogSize,
     content,
   } = props;
-
-  if (!cancelText) {
-    cancelText = '取消';
-  }
-  if (!okType) {
-    okType = 'primary';
-  }
-  if (!title) {
-    title = '标题';
-  }
-  if (!content) {
-    content = '内容';
-  }
-  if (!cancelType) {
-    cancelType = 'default';
-  }
-  if (!onSize) {
-    onSize = 'default';
-  }
-  if (!cancelSize) {
-    cancelSize = 'default';
-  }
-  if (!maskClosable) {
-    maskClosable = false;
-  }
-  if (!type) {
-    type = 'primary';
-  }
 
   const onTextClick = (event: React.MouseEvent) => {
     if (onConfirm) {
@@ -166,6 +138,18 @@ const Dialog: React.FC<DialogType> = (props) => {
       ) : null}
     </>
   );
+};
+
+Dialog.defaultProps = {
+  cancelText: '取消',
+  okType: 'primary',
+  title: '标题',
+  content: '内容',
+  cancelType: 'default',
+  onSize: 'default',
+  cancelSize: 'default',
+  maskClosable: false,
+  type: 'primary',
 };
 
 export default Dialog;

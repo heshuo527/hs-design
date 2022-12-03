@@ -1,6 +1,6 @@
 import React from 'react';
 import { FillIcon, ErrorIcon } from '../icon/Icon';
-import Alert from '.';
+import { Alert } from 'hs-design';
 
 function demo() {
   return (
