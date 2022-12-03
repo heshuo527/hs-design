@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
-import { CloseIcon } from '../icon/Icon';
+import { CloseIcon, FillIcon } from '../icon/Icon';
 import Transition from '../utils/transition';
 import './index.less';
 
@@ -10,16 +10,16 @@ export interface AlertProps {
    * 描述
    */
   description?: string;
-  children?: React.ReactNode;
   type?: 'success' | 'default' | 'danger' | 'warning';
   onClose?: () => void;
   closable?: Boolean;
+  icon?: React.ReactNode;
 }
 
 const Alert: React.FC<AlertProps> = (props) => {
-  const { children, type, title, description, closable, onClose } = props;
+  const { type, title, description, closable, onClose, icon } = props;
   const [hide, setHide] = useState(false);
-  const handleClose = () => {
+  const handleClose = (e: React.MouseEvent) => {
     if (onClose) {
       onClose();
     }
@@ -27,7 +27,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   };
 
   return (
-    <Transition in={!hide} timeout={300} animation="zoom-in-top">
+    <Transition in={!hide} timeout={500} animation="zoom-in-top">
       <div
         className={classnames({
           'hs-alert': true,
@@ -37,6 +37,7 @@ const Alert: React.FC<AlertProps> = (props) => {
           'hs-alert-warning': type === 'warning',
         })}
       >
+        {icon}
         <span className="bold-title">{title}</span>
         {description && <p className="he-alert-desc">{description}</p>}
         {closable && (
@@ -44,7 +45,6 @@ const Alert: React.FC<AlertProps> = (props) => {
             <CloseIcon />
           </span>
         )}
-        {children}
       </div>
     </Transition>
   );

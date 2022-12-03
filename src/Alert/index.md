@@ -16,6 +16,10 @@
   src="./demo2.tsx"
   title="含有辅助性文字"
   desc="含有辅助性文字介绍的警告提示。"
+/> <code
+  src="./demo3.tsx"
+  title="自定义Icon图标"
+  desc="添加图标让信息类型更加醒目。"
 />
 
 ## API
@@ -27,3 +31,4 @@
 | type        | 四种可选类型, 针对四种不同的场景 | `success default danger warning` | `default` |
 | onClose     | 关闭 alert 时触发的事件          | `(() => void)`                   | —         |
 | closable    | 是否显示关闭图标                 | `boolean`                        | `true`    |
+| icon        | 自定义 icon 图标                 | `组件`                           | —         |

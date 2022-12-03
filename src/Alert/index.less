@@ -42,8 +42,39 @@
     font-weight: 700;
   }
 
-  > &.hs-alert-desc {
-    margin: 0.3rem 0 0;
+  .hs-alert-desc {
+    margin: 0.3rem 0 0 10px;
     font-size: 0.875rem;
   }
+
+  &.zoom-in-top-enter {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  /* react-transition-group过度动画 */
+  &.zoom-in-top-enter-active {
+    transform: scaleY(1);
+    transform-origin: center top;
+    opacity: 1;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+      opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+  }
+
+  &.zoom-in-top-exit {
+    opacity: 1;
+  }
+
+  &.zoom-in-top-exit-active {
+    transform: scaleY(0);
+    transform-origin: center top;
+    opacity: 0;
+    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms,
+      opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+  }
+}
+.hs-icon-fill {
+  display: block;
+  float: left;
+  margin-top: 4px;
 }
