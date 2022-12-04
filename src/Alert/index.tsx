@@ -42,7 +42,7 @@ const Alert: React.FC<AlertProps> = (props) => {
         {description && <p className="he-alert-desc">{description}</p>}
         {closable && (
           <span className="hs-alert-close" onClick={handleClose}>
-            <CloseIcon />
+            <CloseIcon color="#fff" />
           </span>
         )}
       </div>

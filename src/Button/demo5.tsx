@@ -19,20 +19,20 @@ function demo5() {
 
   return (
     <>
-      <Button type="primary" icon={<LoadingIcon loading />} onClick={actOnClick}>
+      <Button type="primary" icon={<LoadingIcon loading color="#fff" />} onClick={actOnClick}>
         Loading
       </Button>
       <Button
         type="primary"
-        icon={<ToggleIcon loading={onClickSpin} />}
+        icon={<ToggleIcon color="#fff" loading={onClickSpin} />}
         onClick={() => setOnClickSpin(!onClickSpin)}
       >
         Click Me
       </Button>
-      <Button type="primary" icon={<SearchIcon />}>
+      <Button type="primary" icon={<SearchIcon color="#fff" />}>
         Search
       </Button>
-      <Button type="primary" icon={<DoneIcon />}>
+      <Button type="primary" icon={<DoneIcon color="#fff" />}>
         DoneSearch
       </Button>
     </>

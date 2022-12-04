@@ -1,0 +1,21 @@
+/* loading动画 */
+.hs-icon {
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: top;
+  fill: currentColor;
+
+  &-loading {
+    animation: button-loading-spin 1s linear infinite;
+  }
+
+  @keyframes button-loading-spin {
+    0% {
+      transform: rotateZ(0);
+    }
+
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+}
