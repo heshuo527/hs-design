@@ -1,68 +1,62 @@
-import React, { useEffect } from 'react'
-import classes from '../utils/classes'
-import './index.less'
+import React, { useEffect } from 'react';
+import classes from '../utils/classes';
+import './index.less';
 
 export interface AffixProps {
-  distance?: number
-  className?: string
-  style?: React.CSSProperties
-  children?: React.ReactNode
+  distance?: number;
+  className?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 const Affix: React.FC<AffixProps> = (props) => {
+  const cn = 'affix';
+  const { distance, className, style, children, ...rest } = props;
 
-  const cn = 'affix'
-  const { distance, className, style, children, ...rest } = props
-
-  let top: number = 0
-  let wrapperRef: HTMLDivElement
-  let affixRef: HTMLDivElement
+  let top: number = 0;
+  let wrapperRef: HTMLDivElement;
+  let affixRef: HTMLDivElement;
 
   const handleScroll = () => {
     if (window.scrollY > top - distance!) {
-      const {
-        top,
-        bottom,
-        left,
-        right
-      } = wrapperRef.getBoundingClientRect()
-      wrapperRef.style.width = right - left + 'px'
-      wrapperRef.style.height = bottom - top + 'px'
-      wrapperRef.style.left = left + 'px'
-      wrapperRef.style.top = distance + 'px'
-      wrapperRef.style.position = 'fixed'
+      const { top, bottom, left, right } = wrapperRef.getBoundingClientRect();
+      wrapperRef.style.width = right - left + 'px';
+      wrapperRef.style.height = bottom - top + 'px';
+      wrapperRef.style.left = left + 'px';
+      wrapperRef.style.top = distance + 'px';
+      wrapperRef.style.position = 'fixed';
     } else {
-      wrapperRef.style.position = 'static'
+      wrapperRef.style.position = 'static';
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    setTop()
-  })
-  useEffect(() => {
-    window.removeEventListener('scroll', handleScroll)
-  })
+    window.addEventListener('scroll', handleScroll);
+    setTop();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const setTop = () => {
     if (window.scrollY === 0) {
-      top = affixRef.getBoundingClientRect().top
+      top = affixRef.getBoundingClientRect().top;
       // 挂载时若窗口滚动不为 0，先滚动至 0
     } else {
-      const { scrollX, scrollY } = window
-      window.scrollTo(scrollX, 0)
-      top = affixRef.getBoundingClientRect().top
-      window.scrollTo(scrollX, scrollY)
+      const { scrollX, scrollY } = window;
+      window.scrollTo(scrollX, 0);
+      top = affixRef.getBoundingClientRect().top;
+      window.scrollTo(scrollX, scrollY);
     }
-  }
+  };
 
   const saveAffixRef = (node: HTMLDivElement) => {
-    affixRef = node
-  }
+    affixRef = node;
+  };
 
   const saveWrapperRef = (node: HTMLDivElement) => {
-    wrapperRef = node
-  }
+    wrapperRef = node;
+  };
 
   return (
     <div className={classes(cn, '')} ref={saveAffixRef}>
@@ -72,10 +66,14 @@ const Affix: React.FC<AffixProps> = (props) => {
         style={style}
         {...rest}
       >
-        {children}
+        <div className="hs-affix-demo">{children}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Affix
+Affix.defaultProps = {
+  distance: 0,
+};
+
+export default Affix;

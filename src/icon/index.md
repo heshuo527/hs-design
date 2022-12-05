@@ -5,7 +5,7 @@
 <code
   src="./demo1.tsx"
   title="基础用法"
-  desc="本套组件库内置了一下Icon图标，可以直接使用。"
+  desc="本套组件库内置了一些Icon图标，可以直接使用。"
 />
 
 <code
@@ -17,7 +17,7 @@
 <code
   src="./demo3.tsx"
   title="基础用法"
-  desc="不同主体的Icon"
+  desc="不同主题的Icon"
 />
 
 <code
