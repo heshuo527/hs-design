@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'hs-design';
-import {
-  MyIcon,
-  SettingIcon,
-  LoadingIcon,
-  ToggleIcon,
-  SearchIcon,
-  SearchSIcon,
-  DoneIcon,
-} from '../icon/Icon';
+import { LoadingIcon, ToggleIcon, SearchIcon, DoneIcon } from '../icon/Icon';
 
 function demo5() {
   const [onClickSpin, setOnClickSpin] = useState(false);

@@ -17,19 +17,6 @@ const Affix: React.FC<AffixProps> = (props) => {
   let wrapperRef: HTMLDivElement;
   let affixRef: HTMLDivElement;
 
-  const handleScroll = () => {
-    if (window.scrollY > top - distance!) {
-      const { top, bottom, left, right } = wrapperRef.getBoundingClientRect();
-      wrapperRef.style.width = right - left + 'px';
-      wrapperRef.style.height = bottom - top + 'px';
-      wrapperRef.style.left = left + 'px';
-      wrapperRef.style.top = distance + 'px';
-      wrapperRef.style.position = 'fixed';
-    } else {
-      wrapperRef.style.position = 'static';
-    }
-  };
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     setTop();
@@ -47,6 +34,19 @@ const Affix: React.FC<AffixProps> = (props) => {
       window.scrollTo(scrollX, 0);
       top = affixRef.getBoundingClientRect().top;
       window.scrollTo(scrollX, scrollY);
+    }
+  };
+
+  const handleScroll = () => {
+    if (window.scrollY > top - distance!) {
+      const { top, bottom, left, right } = wrapperRef.getBoundingClientRect();
+      wrapperRef.style.width = right - left + 'px';
+      wrapperRef.style.height = bottom - top + 'px';
+      wrapperRef.style.left = left + 'px';
+      wrapperRef.style.top = distance + 'px';
+      wrapperRef.style.position = 'fixed';
+    } else {
+      wrapperRef.style.position = 'static';
     }
   };
 

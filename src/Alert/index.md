@@ -16,7 +16,9 @@
   src="./demo2.tsx"
   title="含有辅助性文字"
   desc="含有辅助性文字介绍的警告提示。"
-/> <code
+/>
+
+<code
   src="./demo3.tsx"
   title="自定义Icon图标"
   desc="添加图标让信息类型更加醒目。"

@@ -21,14 +21,14 @@ import {
 const demo4 = () => {
   return (
     <>
-      <MyIcon size={32} color="#1890ff" />
-      <SettingIcon size={32} color="#1890ff" />
-      <SearchIcon size={32} color="#1890ff" />
-      <SearchSIcon size={32} color="#1890ff" />
-      <DoneIcon size={32} color="#52c41a" />
-      <UpArrowsIcon size={32} color="#52c41a" />
-      <CloseIcon size={32} color="#52c41a" />
-      <FillIcon size={32} color="#52c41a" />
+      <MyIcon size={32} color="#3e74f3" />
+      <SettingIcon size={32} color="#3e74f3" />
+      <SearchIcon size={32} color="#3e74f3" />
+      <SearchSIcon size={32} color="#3e74f3" />
+      <DoneIcon size={32} color="#74c041" />
+      <UpArrowsIcon size={32} color="#74c041" />
+      <CloseIcon size={32} color="#74c041" />
+      <FillIcon size={32} color="#74c041" />
       <ErrorIcon size={32} color="#faad14" />
       <HelpIcon size={32} color="#faad14" />
       <MessageIcon size={32} color="#faad14" />
