@@ -1,4 +1,4 @@
-@import '../style/mixins.less';
+@import '../style/color.less';
 
 .hs-switch {
   position: relative;
@@ -8,8 +8,8 @@
   height: 18px;
   margin-right: 20px;
   padding: 2px;
-  background-color: rgba(0, 0, 0, 0.25);
-  border-color: @brand;
+  background-color: @disabled;
+  border-color: @link;
   border-radius: 11px;
   cursor: pointer;
   transition: all 0.2s linear;
@@ -17,21 +17,22 @@
   > .hs-switch-core {
     width: 18px;
     height: 18px;
-    background-color: #fff;
+    background-color: @other;
     border-radius: 50%;
     transform: translateX(0);
     transition: all 0.2s linear;
   }
 
   &.hs-switch-checked {
-    background-color: @brand;
+    background-color: @link;
 
     > .hs-switch-core {
       transform: translateX(100%);
     }
   }
+
   &.hs-switch-checked-toggle {
-    background-color: @brand;
+    background-color: @link;
 
     > .hs-switch-core {
       transform: translateX(100%);
@@ -47,7 +48,7 @@
     float: right;
     width: 20px;
     height: 20px;
-    background-color: #fff;
+    background-color: @other;
     border-radius: 50%;
     transform: translateX(0);
     transition: all 0.2s linear;
