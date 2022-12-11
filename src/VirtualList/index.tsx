@@ -7,7 +7,7 @@ export interface VirtualListProps {
   /**
    * 容器高度
    */
-  containerHeight?: number;
+  containerHeight: number;
   /**
    * 每个元素高度
    */
@@ -15,67 +15,64 @@ export interface VirtualListProps {
   /**
    * 元素数量
    */
-  itemCount?: number;
+  itemCount: number;
   children?: any;
   classNames?: string;
+  /**
+   * 上下额外渲染的数量
+   */
+  contentCount?: number;
+  /**
+   * 处理越界情况
+   */
+  crossCount?: number;
 }
 
-/* export function throttle(fn: Function, delay: number) {
-  let flag = true
-  return function (this: Function, ...args: Array<any>) {
-    const context = this
-    if (flag) {
-      flag = false
-      fn.apply(context, args)
-      setTimeout(() => {
-        flag = true
-      }, delay);
-    }
-  }
-} */
-
 const VirtualList: FC<VirtualListProps> = (props) => {
-  const { containerHeight, itemHeight, itemCount, children, classNames } = props;
-
+  const { containerHeight, itemHeight, itemCount, children, classNames, contentCount, crossCount } =
+    props;
   let Component = children;
-
   const contentHeight = itemCount! * itemHeight; // 先算出总高度
   const [scrollTop, setScrollTop] = useState(0); // 滚动位置
 
   // 继续需要渲染的item索引有哪些
   let startIndex = Math.floor(scrollTop / itemHeight);
-  let endIndex = Math.floor((scrollTop + itemHeight) / itemHeight);
+  let endIndex = Math.floor((scrollTop + containerHeight) / itemHeight);
 
-  // 上下额外渲染的数量
-  const paddingCount = 9;
-  startIndex = Math.max(startIndex - paddingCount, 0); //处理越界情况
-  endIndex = Math.min(endIndex + paddingCount, itemCount! - 1);
+  startIndex = Math.max(startIndex - contentCount!, crossCount!); //处理越界情况
+  endIndex = Math.min(endIndex + contentCount!, itemCount);
   const top = itemHeight * startIndex; //第一个渲染的item到顶部距离
 
   // 需要渲染的items
   const items: any = [];
   for (let i = startIndex; i <= endIndex; i++) {
-    items.push(<Component key={i} index={i} style={{ height: itemHeight }} />);
+    items.push(<Component key={i} index={i} style={{ height: itemHeight }} imgDemo></Component>);
   }
 
-  /* const classes = classnames('hs-virtual-container', classNames) */
+  // 滚动时的回调
+  const onScrollHandle = (e: any) => {
+    // 处理异步函数导致的空白现象
+    // 改为同步更新, 但可能有性能问题, 可以做节流+RAF优化
+    // flushSync 可以优先渲染里面的子元素
+    flushSync(() => {
+      setScrollTop(e.target.scrollTop);
+    });
+  };
+
+  const classes = classnames('hs-virtual-container', classNames);
+  console.log(items);
+
   return (
-    <div
-      className="hs-virtual"
-      style={{ height: containerHeight, overflow: 'auto' }}
-      onScroll={(e: any) => {
-        // 处理异步函数导致的空白现象
-        // 改为同步更新, 但可能有性能问题, 可以做节流+RAF优化
-        flushSync(() => {
-          setScrollTop(e.target.scrollTop);
-        });
-      }}
-    >
+    <div className={classes} style={{ height: containerHeight }} onScroll={onScrollHandle}>
       <div style={{ height: contentHeight }}>
         <div style={{ height: top }}></div>
         {items}
       </div>
     </div>
   );
+};
+VirtualList.defaultProps = {
+  contentCount: 0,
+  crossCount: 0,
 };
 export default VirtualList;

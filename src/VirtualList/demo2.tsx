@@ -22,7 +22,7 @@ function demo() {
   return (
     <>
       列表项高度固定 - 虚拟列表实现
-      <MyVirtualList containerHeight={200} itemCount={list.length} itemHeight={10}>
+      <MyVirtualList containerHeight={300} itemCount={list.length} itemHeight={30}>
         {Item}
       </MyVirtualList>
     </>

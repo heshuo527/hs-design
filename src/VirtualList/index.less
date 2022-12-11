@@ -1,9 +1,11 @@
-.hs-virtual {
-  overflow: auto;
-  background-color: rgb(208, 255, 239);
+@import '../style/color.less';
 
-  > .item {
-    text-align: center;
-    background-color: burlywood;
-  }
+.hs-virtual-container {
+  overflow: auto;
+  border: 1px solid @frame;
+}
+
+.item img {
+  width: 100px;
+  height: 100px;
 }
