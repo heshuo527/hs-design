@@ -1,6 +1,3 @@
-/**
- * 绝对定位方案
- */
 import React from 'react';
 import { useState } from 'react';
 import { flushSync } from 'react-dom';
