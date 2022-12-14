@@ -9,7 +9,7 @@ function Item({ style, index }) {
       className="item"
       style={{
         ...style,
-        backgroundColor: index % 2 === 0 ? '#d8d8d8' : '#a8c0f9',
+        backgroundColor: index % 2 === 0 ? '#c0e2a9' : '#a8c0f9',
       }}
     >
       <img src={`${imgDemo[rand]}`} alt="" />

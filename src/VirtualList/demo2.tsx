@@ -8,7 +8,7 @@ function Item({ style, index }) {
       className="item"
       style={{
         ...style,
-        backgroundColor: index % 2 === 0 ? 'burlywood' : 'cadetblue',
+        backgroundColor: index % 2 === 0 ? '#a4d683' : '#81a4f7',
       }}
     >
       {index}

@@ -72,6 +72,7 @@ const Button: React.FC<BUttonProps> = (props) => {
 
 Button.defaultProps = {
   type: 'default',
+  size: 'medium',
 };
 
 export default Button;

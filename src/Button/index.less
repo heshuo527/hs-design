@@ -45,7 +45,7 @@
 
     &:hover {
       color: rgba(0, 0, 0, 0.25);
-      border-color: @segmentation;
+      border-color: @frame;
     }
 
     &::after {
@@ -193,7 +193,7 @@
     &.hs-button-disabled {
       color: @disabled;
       background-color: @segmentation;
-      border-color: frame;
+      border-color: @frame;
       cursor: not-allowed;
     }
 
@@ -217,7 +217,7 @@
   }
 
   &-dashed {
-    border-style: dashed;
+    border-style: dashed !important;
 
     &::after {
       position: absolute;

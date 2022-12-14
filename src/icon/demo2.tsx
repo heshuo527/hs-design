@@ -11,12 +11,12 @@ import {
 const demo2 = () => {
   return (
     <>
-      <LoadingIcon size={48} loading />
-      <SettingIcon size={48} loading />
-      <RotateIcon size={48} loading />
-      <RotateIcon2 size={48} loading />
-      <RotateIcon3 size={48} loading />
-      <RotateIcon4 size={48} loading />
+      <LoadingIcon size={48} loading color="#c0e2a9" />
+      <SettingIcon size={48} loading color="#c0e2a9" />
+      <RotateIcon size={48} loading color="#c0e2a9" />
+      <RotateIcon2 size={48} loading color="#c0e2a9" />
+      <RotateIcon3 size={48} loading color="#c0e2a9" />
+      <RotateIcon4 size={48} loading color="#c0e2a9" />
     </>
   );
 };

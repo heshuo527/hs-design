@@ -1,4 +1,3 @@
-
 ## 按钮
 
 点开即时操作
@@ -23,7 +22,7 @@
   src="./demo3.tsx"
   title="幽灵按钮"
   desc="幽灵按钮常用在有色背景上。"
-  background= "rgb(190, 200, 200)"
+  background= "rgba(0, 0, 0, 0.45)"
 />
 
 <code
@@ -40,22 +39,22 @@
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| icon |	自定义 Icon 图标 |	`组件` |	——
-| type |	不同样式风格的按钮 |	`default` `dashed`  `primary`  `danger` |	`default`
-| size |	按钮的尺寸 |	`small` `medium` `large` | `medium`
-| disabled |	禁用状态 |	`boolean`	| `false`
-| ghost |	幽灵按钮 |	`boolean` |	`false`
-| htmlType |	按钮的原生 type 属性	| `button`  `submit`  `reset`|`button`
-| onClick |	点击按钮时的回调 |	`React.MouseEventHandler`	| ——
-| className |	自定义 Button 类名	| `string`	| ——
-| style |	自定义 Button 样式 |	`React.CSSProperties`	| ——
+| 参数      | 说明                 | 类型                                  | 默认值    |
+| --------- | -------------------- | ------------------------------------- | --------- |
+| icon      | 自定义 Icon 图标     | `组件`                                | ——        |
+| type      | 不同样式风格的按钮   | `default` `dashed` `primary` `danger` | `default` |
+| size      | 按钮的尺寸           | `small` `medium` `large`              | `medium`  |
+| disabled  | 禁用状态             | `boolean`                             | `false`   |
+| ghost     | 幽灵按钮             | `boolean`                             | `false`   |
+| htmlType  | 按钮的原生 type 属性 | `button` `submit` `reset`             | `button`  |
+| onClick   | 点击按钮时的回调     | `React.MouseEventHandler`             | ——        |
+| className | 自定义 Button 类名   | `string`                              | ——        |
+| style     | 自定义 Button 样式   | `React.CSSProperties`                 | ——        |
 
-## 内置Icon图标Api
+## 内置 Icon 图标 Api
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| size | icon图标的大小 | `number(px)` | `16px`
-| className |	自定义 icon 类名	| `string`	| ——
-| loading |	加载中状态 |	`boolean`	| `false`
+| 参数      | 说明             | 类型         | 默认值  |
+| --------- | ---------------- | ------------ | ------- |
+| size      | icon 图标的大小  | `number(px)` | `16px`  |
+| className | 自定义 icon 类名 | `string`     | ——      |
+| loading   | 加载中状态       | `boolean`    | `false` |
