@@ -2,14 +2,18 @@ import React from 'react';
 import classnames from 'classnames';
 import './index.less';
 
-export interface BUttonProps {
+export type ButtonType = 'default' | 'dashed' | 'primary' | 'danger';
+export type ButtonSize = 'small' | 'medium' | 'large';
+export type ButtonHtmlType = 'button' | 'submit' | 'reset';
+
+export interface ButtonProps {
   children?: React.ReactNode;
-  type?: 'default' | 'dashed' | 'primary' | 'danger';
+  type?: ButtonType;
   disabled?: boolean;
   icon?: React.ReactNode;
-  size?: 'small' | 'medium' | 'large';
+  size?: ButtonSize;
   ghost?: boolean;
-  htmlType?: 'button' | 'submit' | 'reset';
+  htmlType?: ButtonHtmlType;
   loading?: boolean;
   onClick?: React.MouseEventHandler;
   onMouseEnter?: React.MouseEventHandler;
@@ -20,7 +24,7 @@ export interface BUttonProps {
   style?: React.CSSProperties;
 }
 
-const Button: React.FC<BUttonProps> = (props) => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     icon,
     loading,
@@ -44,27 +48,29 @@ const Button: React.FC<BUttonProps> = (props) => {
     }
   };
 
+  const classes = classnames({
+    'hs-button': true,
+    'hs-button-default': type === 'default',
+    'hs-button-primary': type === 'primary',
+    'hs-button-dashed': type === 'dashed',
+    'hs-button-danger': type === 'danger',
+    'hs-button-small': size === 'small',
+    'hs-button-medium': size === 'medium',
+    'hs-button-large': size === 'large',
+    'hs-button-ghost': ghost,
+    'hs-button-disabled': disabled,
+  });
+
   return (
     <button
-      className={classnames({
-        'hs-button': true,
-        'hs-button-default': type === 'default',
-        'hs-button-primary': type === 'primary',
-        'hs-button-dashed': type === 'dashed',
-        'hs-button-danger': type === 'danger',
-        'hs-button-small': size === 'small',
-        'hs-button-medium': size === 'medium',
-        'hs-button-large': size === 'large',
-        'hs-button-ghost': ghost,
-        'hs-button-disabled': disabled,
-      })}
+      className={classes}
       style={style}
       type={htmlType}
       disabled={disabled}
       onClick={handleClick}
       {...rest}
     >
-      {props.icon && props.icon}
+      {props.icon && icon}
       {children}
     </button>
   );
