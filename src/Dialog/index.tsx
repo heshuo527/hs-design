@@ -5,22 +5,26 @@ import classnames from 'classnames';
 import './index.less';
 import '../style/base.less';
 
-export interface DialogType {
+export type DialogType = 'default' | 'dashed' | 'primary' | 'danger';
+export type DialogOnSize = 'small' | 'default';
+export type DialogSize = 'small' | 'medium' | 'large';
+
+export interface DialogProps {
   asyncOpen?: boolean;
   children?: React.ReactNode;
   title?: any;
   content?: any;
   onText?: string;
-  okType?: 'default' | 'dashed' | 'primary' | 'danger';
+  okType?: DialogType;
   cancelText?: string;
-  cancelType?: 'default' | 'dashed' | 'primary' | 'danger';
-  type?: 'default' | 'dashed' | 'primary' | 'danger';
-  onSize?: 'small' | 'default';
-  cancelSize?: 'small' | 'default';
+  cancelType?: DialogType;
+  type?: DialogType;
+  onSize?: DialogOnSize;
+  cancelSize?: DialogOnSize;
   style?: React.CSSProperties;
   className?: string;
   maskClosable?: boolean;
-  onDialogSize?: 'small' | 'medium' | 'large';
+  onDialogSize?: DialogSize;
   /**
    * 点击确认按钮的回调
    */
@@ -42,7 +46,7 @@ export interface DialogType {
 const scopedClass = scopedClassMaker('hs-dialog');
 const sc = scopedClass;
 
-const Dialog: React.FC<DialogType> = (props) => {
+const Dialog: React.FC<DialogProps> = (props) => {
   const [open, setOpen] = useState<Boolean>(false);
   const { children, style, onConfirm, onCancel, onMask, onDialog } = props;
   const {

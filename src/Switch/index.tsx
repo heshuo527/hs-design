@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classnames from 'classnames';
 import './index.less';
 
+export type SwitchSize = 'small' | 'default';
 export interface SwitchProps {
   /**
    * 默认false就是默认关闭状态
@@ -10,7 +11,7 @@ export interface SwitchProps {
   checked?: Boolean;
   children?: React.ReactNode;
   disabled?: Boolean;
-  size?: 'small' | 'default';
+  size?: SwitchSize;
   onChange?: React.MouseEventHandler;
   onClick?: React.MouseEventHandler;
   style?: React.CSSProperties;
@@ -41,18 +42,17 @@ const Switch: React.FC<SwitchProps> = (props) => {
     }
   };
 
+  const classes = classnames({
+    'hs-switch': true,
+    'hs-switch-default': size === 'default',
+    'hs-switch-small': size === 'small',
+    'hs-switch-checked': checked,
+    'hs-switch-checked-toggle': props.toggleChecked,
+    'hs-switch-disabled': disabled,
+  });
+
   return (
-    <span
-      className={classnames({
-        'hs-switch': true,
-        'hs-switch-default': size === 'default',
-        'hs-switch-small': size === 'small',
-        'hs-switch-checked': checked,
-        'hs-switch-checked-toggle': props.toggleChecked,
-        'hs-switch-disabled': disabled,
-      })}
-      onClick={handleClick}
-    >
+    <span className={classes} onClick={handleClick}>
       <span className="hs-switch-core">{children}</span>
     </span>
   );
