@@ -36,6 +36,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     className,
     disabled,
     children,
+    onClick,
     ...rest
   } = props;
 
@@ -43,8 +44,8 @@ const Button: React.FC<ButtonProps> = (props) => {
     if (disabled) {
       return;
     }
-    if (props.onClick) {
-      props.onClick(event);
+    if (onClick) {
+      onClick(event);
     }
   };
 
@@ -79,6 +80,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 Button.defaultProps = {
   type: 'default',
   size: 'medium',
+  disabled: false,
 };
 
 export default Button;
