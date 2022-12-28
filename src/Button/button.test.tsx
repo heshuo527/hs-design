@@ -41,4 +41,21 @@ describe('test Button component', () => {
     fireEvent.click(element);
     expect(disabledProps.onClick).not.toHaveBeenCalled();
   });
+  it('should render the correct include htmlText', () => {
+    const wrapper = render(<Button>hs</Button>);
+    const element = wrapper.getByText('hs');
+    expect(element).toBeInTheDocument();
+    // toContainHTML 表示当前渲染的元素里面包含哪些元素
+    expect(element).toContainHTML(
+      '<button class="hs-button hs-button-default hs-button-medium" type="button">hs</button>',
+    );
+  });
+  it('should render the correct button attribute', () => {
+    const wrapper = render(<Button disabled>hs</Button>);
+    const element = wrapper.getByText('hs');
+    expect(element).toBeInTheDocument();
+    // toHaveAttribute 表示给定元素是否具有属性
+    expect(element).toHaveAttribute('disabled');
+    expect(element).toHaveAttribute('type', 'button');
+  });
 });

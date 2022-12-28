@@ -73,7 +73,7 @@ const Affix: React.FC<AffixProps> = (props) => {
 };
 
 Affix.defaultProps = {
-  distance: 0,
+  distance: 100,
 };
 
 export default Affix;
