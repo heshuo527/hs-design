@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 import classnames from 'classnames';
 import { CloseIcon } from '../icon/Icon';
 import Transition from '../utils/transition';
@@ -12,7 +12,7 @@ export interface AlertProps {
    */
   description?: string;
   type?: AlertType;
-  onClose?: () => void;
+  onClose?: MouseEventHandler;
   closable?: Boolean;
   icon?: React.ReactNode;
 }
@@ -22,7 +22,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   const [hide, setHide] = useState(false);
   const handleClose = (e: React.MouseEvent) => {
     if (onClose) {
-      onClose();
+      onClose(e);
     }
     setHide(true);
   };

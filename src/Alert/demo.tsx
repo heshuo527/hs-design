@@ -4,10 +4,10 @@ import { Alert } from 'hs-design';
 function demo() {
   return (
     <>
-      <Alert type="default" closable title="type default"></Alert>
-      <Alert type="success" closable title="type success"></Alert>
-      <Alert type="danger" closable title="type danger"></Alert>
-      <Alert type="warning" closable title="type warning"></Alert>
+      <Alert type="default" closable title="type default" />
+      <Alert type="success" closable title="type success" />
+      <Alert type="danger" closable title="type danger" />
+      <Alert type="warning" closable title="type warning" />
     </>
   );
 }

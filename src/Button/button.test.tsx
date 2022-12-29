@@ -1,9 +1,9 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Button, { ButtonProps } from './index';
 
-const defaultProps = {
+const defaultProps: ButtonProps = {
   disabled: false,
   onClick: jest.fn(),
 };
@@ -41,7 +41,7 @@ describe('test Button component', () => {
     fireEvent.click(element);
     expect(disabledProps.onClick).not.toHaveBeenCalled();
   });
-  it('should render the correct include htmlText', () => {
+  it('should render the correct include htmlElement', () => {
     const wrapper = render(<Button>hs</Button>);
     const element = wrapper.getByText('hs');
     expect(element).toBeInTheDocument();
