@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Alert, { AlertProps } from './index';
 
@@ -16,7 +16,6 @@ describe('test alert component', () => {
     const wrapper = render(<Alert {...defaultProps} />);
     const element = wrapper.getByText('hs');
     const element2 = wrapper.getByText('design');
-    expect(element2);
     expect(element).toBeInTheDocument();
     expect(element2).toBeInTheDocument();
     expect(element.tagName).toEqual('SPAN');
@@ -27,7 +26,6 @@ describe('test alert component', () => {
     const element = wrapper.getByText('hs');
     const element2 = wrapper.getByText('design');
     expect(element).toBeInTheDocument();
-    expect(element).toHaveClass('bold-title');
     expect(element).toContainHTML('<span class="bold-title">hs</span>');
     expect(element2).toContainHTML('<p class="he-alert-desc">design</p>');
   });

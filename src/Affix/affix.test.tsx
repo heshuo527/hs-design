@@ -15,7 +15,7 @@ describe('test Affix component', () => {
     const element = wrapper.getByText('hs');
     expect(element).toContainHTML('<div class="hs-affix-demo">hs</div>');
   });
-  it('should render the correct include htmlElement', () => {
+  it('should render the correct include className', () => {
     const wrapper = render(<Affix>hs</Affix>);
     const element = wrapper.getByText('hs');
     expect(element).toHaveClass('hs-affix-demo');

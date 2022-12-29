@@ -11,6 +11,7 @@ export type DialogSize = 'small' | 'medium' | 'large';
 
 export interface DialogProps {
   asyncOpen?: boolean;
+  disabled?: boolean;
   children?: React.ReactNode;
   title?: any;
   content?: any;
@@ -61,6 +62,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
     title,
     onDialogSize,
     content,
+    disabled,
   } = props;
 
   const onTextClick = (event: React.MouseEvent) => {
@@ -105,7 +107,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
 
   return (
     <>
-      <Button size={onDialogSize} type={type} onClick={dialogClick}>
+      <Button size={onDialogSize} disabled={disabled} type={type} onClick={dialogClick}>
         {' '}
         {children}{' '}
       </Button>
@@ -145,6 +147,7 @@ const Dialog: React.FC<DialogProps> = (props) => {
 };
 
 Dialog.defaultProps = {
+  disabled: false,
   cancelText: '取消',
   okType: 'primary',
   title: '标题',
