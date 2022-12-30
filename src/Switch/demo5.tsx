@@ -8,11 +8,11 @@ function demo5() {
 
   return (
     <>
-      <Switch toggleChecked={isChecked}></Switch>
+      <Switch toggleChecked={isChecked} />
       <Button type="primary" onClick={() => setChecked(!isChecked)}>
         Toggle Checked
       </Button>
-      <Switch disabled={isDisabled}></Switch>
+      <Switch disabled={isDisabled} />
       <Button type="primary" onClick={() => setDisabled(!isDisabled)}>
         Toggle Disabled
       </Button>

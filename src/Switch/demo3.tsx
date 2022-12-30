@@ -4,10 +4,10 @@ import { Switch } from 'hs-design';
 function demo3() {
   return (
     <>
-      <Switch disabled></Switch>
+      <Switch disabled />
       <br />
       <br />
-      <Switch disabled checked></Switch>
+      <Switch disabled checked />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Button, { ButtonProps } from './index';
+import Button, { ButtonProps } from '../Button';
 
 const defaultProps: ButtonProps = {
   disabled: false,

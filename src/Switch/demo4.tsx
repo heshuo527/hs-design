@@ -4,8 +4,8 @@ import { Switch } from 'hs-design';
 function demo4() {
   return (
     <>
-      <Switch checked={false}></Switch>
-      <Switch checked></Switch>
+      <Switch checked={false} />
+      <Switch checked />
     </>
   );
 }

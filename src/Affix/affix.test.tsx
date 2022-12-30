@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Affix from './index';
+import Affix from '../Affix';
 
 describe('test Affix component', () => {
   it('should render the correct default affix', () => {

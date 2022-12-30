@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Alert, { AlertProps } from './index';
+import Alert, { AlertProps } from '../Alert';
 
 const defaultProps: AlertProps = {
   title: 'hs',
@@ -35,6 +35,6 @@ describe('test alert component', () => {
     const element2 = wrapper.getByText('design');
     expect(element).toBeInTheDocument();
     expect(element).toHaveClass('bold-title');
-    expect(element2).toHaveClass('he-alert-desc');
+    expect(element2).toHaveClass(' he-alert-desc');
   });
 });

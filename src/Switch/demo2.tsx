@@ -4,10 +4,10 @@ import { Switch } from 'hs-design';
 function demo2() {
   return (
     <>
-      <Switch checked={false} size="small"></Switch>
+      <Switch checked={false} size="small" />
       <br />
       <br />
-      <Switch checked={false}></Switch>
+      <Switch checked={false} />
     </>
   );
 }
