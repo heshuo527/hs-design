@@ -2,7 +2,7 @@ import React from 'react';
 import VirtualList from '.';
 import './index.less';
 
-function Item({ style, index }) {
+const Item = ({ style, index }) => {
   let rand = Math.floor(Math.random() * 10);
   return (
     <div
@@ -16,7 +16,7 @@ function Item({ style, index }) {
       {index}
     </div>
   );
-}
+};
 
 const imgDemo = [
   'https://img1.imgtp.com/2022/12/11/J3Qo7ONE.jpg',
@@ -33,7 +33,7 @@ const imgDemo = [
   'https://img1.imgtp.com/2022/12/11/Y5mZjAz7.jpg',
 ];
 
-function demo() {
+const demo = () => {
   const list = new Array(100000).fill(0).map((_item, i) => {
     return i;
   });
@@ -42,5 +42,5 @@ function demo() {
       {Item}
     </VirtualList>
   );
-}
+};
 export default demo;

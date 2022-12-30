@@ -63,7 +63,12 @@ const VirtualList: FC<VirtualListProps> = (props) => {
   console.log(items);
 
   return (
-    <div className={classes} style={{ height: containerHeight }} onScroll={onScrollHandle}>
+    <div
+      className={classes}
+      data-testid="test-virtual"
+      style={{ height: containerHeight }}
+      onScroll={onScrollHandle}
+    >
       <div style={{ height: contentHeight }}>
         <div style={{ height: top }}></div>
         {items}
