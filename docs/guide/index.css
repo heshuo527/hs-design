@@ -1,0 +1,63 @@
+.hs-font {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 10px 20px;
+}
+.__dumi-default-previewer-source {
+  display: block !important;
+}
+.container {
+  display: flex;
+}
+.container2 {
+  display: flex;
+  width: 1100px;
+  flex-wrap: wrap;
+}
+.hs-default {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 100px;
+  margin-right: 50px;
+  border-radius: 5px;
+  color: #fff;
+}
+.hs-default.hs-primary {
+  background-color: #74c041;
+}
+.hs-default.hs-primary2 {
+  background-color: #a4d683;
+}
+.hs-default.hs-primary3 {
+  background-color: #c0e2a9;
+}
+.hs-default.hs-success {
+  background-color: #3e74f3;
+}
+.hs-default.hs-warning {
+  background-color: #faad14;
+}
+.hs-default.hs-error {
+  background-color: #f5222d;
+}
+.hs-default.hs-title {
+  margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+.hs-default.hs-main {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.hs-default.hs-sub {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+.hs-default.hs-disabled {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.hs-default.hs-border {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.hs-default.hs-background {
+  background-color: rgba(0, 0, 0, 0.04);
+}
