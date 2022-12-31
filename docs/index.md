@@ -1,3 +1,7 @@
+---
+order: 1
+---
+
 # hs-design
 
 hs-design 是基于 React 的 UI 组件库, 色彩样式是参考了其他成熟的 UI 组件库

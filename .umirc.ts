@@ -1,4 +1,4 @@
-import { defineConfig } from 'dumi';
+import { defineConfig, useRouteMatch } from 'dumi';
 
 export default defineConfig({
   title: 'hs-design',
