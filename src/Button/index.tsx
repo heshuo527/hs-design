@@ -78,7 +78,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 };
 
 Button.defaultProps = {
-  type: 'default',
+  type: 'primary',
   size: 'medium',
   disabled: false,
   htmlType: 'button',

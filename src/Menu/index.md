@@ -28,7 +28,7 @@
 | className | 自定义 Menu 类名 | `string` | - |
 | mode | 菜单类型 横向或者纵向 | `"horizontal"` `"vertical"` | `"horizontal"` |
 | style | 根节点样式 | `CSSProperties` | - |
-| onSelect | 点击菜单项触发的回掉函数 | `((selectedIndex: string) => void)` | - |
+| onSelect | 点击菜单项触发的回调函数 | `((selectedIndex: string) => void)` | - |
 | defaultOpenSubMenu | 设置子菜单的默认打开 只在纵向模式下生效 | `string[]` | `[]` |
 
 ### SubMenu

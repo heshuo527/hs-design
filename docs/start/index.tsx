@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from 'hs-design';
 
-const index = () => {
-  return <Button>index</Button>;
+const App = () => {
+  return <Button type="primary">Primary</Button>;
 };
 
-export default index;
+export default App;
