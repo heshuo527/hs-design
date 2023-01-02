@@ -60,7 +60,6 @@ const VirtualList: FC<VirtualListProps> = (props) => {
   };
 
   const classes = classnames('hs-virtual-container', classNames);
-  console.log(items);
 
   return (
     <div

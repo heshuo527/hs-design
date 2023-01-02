@@ -13,7 +13,7 @@ export interface IconProps extends React.SVGAttributes<SVGElement> {
 
 const componentName = 'Icon';
 
-const Icon: React.FunctionComponent<IconProps> = (props) => {
+export const Icon: React.FunctionComponent<IconProps> = (props) => {
   const { className, size, style, children, loading, onClick, color, ...rest } = props;
   const handleClickIcon = (event: React.MouseEvent<Element, MouseEvent>) => {
     if (onClick) {
