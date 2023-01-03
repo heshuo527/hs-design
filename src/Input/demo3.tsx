@@ -1,4 +1,4 @@
-import { SearchSIcon } from '@/icon/Icon';
+import { SearchSIcon } from '../icon/Icon';
 import React from 'react';
 import Input from '../Input';
 import './demo.less';

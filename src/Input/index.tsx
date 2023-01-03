@@ -20,6 +20,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
   prepend?: string | ReactElement;
   append?: string | ReactElement;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onClick?: React.MouseEventHandler;
   onKeyDown?: React.KeyboardEventHandler;
   onPressEnter?: React.KeyboardEventHandler;
   suffix?: string | React.ReactNode;
@@ -75,6 +76,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     }
   };
 
+  const handleClick: React.MouseEventHandler = (e) => {
+    const { onClick } = props;
+    if (onClick) {
+      onClick(e);
+      console.log('111');
+    }
+  };
+
   if ('value' in props) {
     console.log(restProps.defaultValue);
     delete restProps.defaultValue;
@@ -91,21 +100,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         onKeyDown={handleKeyDown}
         {...restProps}
       />
-      {suffix && (
-        <span className="suffix-wrapper">
-          {typeof suffix === 'string' ? <span className="suffix-string">{suffix}</span> : suffix}
-        </span>
-      )}
-      {addonAfter && (
-        <div className="addon-after-wrapper">
-          {typeof addonAfter === 'string' ? (
-            <span className="after-string">{addonAfter}</span>
-          ) : (
-            addonAfter
-          )}
+      {append && (
+        <div className="hs-input-group-append" onClick={handleClick}>
+          {append}
         </div>
       )}
-      {append && <div className="hs-input-group-append">{append}</div>}
     </div>
   );
 });

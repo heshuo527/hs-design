@@ -29,3 +29,19 @@
   title="不同大小"
   desc="不同大小的输入框"
 />
+
+## API
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| defaultValue | 输入框默认值 | `string` | `-` |
+| disabled | 禁用状态 | `boolean` | `false` |
+| size | 输入框尺寸 | `small` `medium` `large` | `medium` |
+| children | 子元素 | `ReactNode` | `-` |
+| icon | 添加图标，在右侧悬浮添加一个图标，用于提示 | `IconProp` | `SearchIcon` |
+| prepend | 添加前缀 用于配置一些固定组合 | `string ReactElement<any, string JSXElementConstructor<any>>` | `-` |
+| append | 添加后缀 用于配置一些固定组合 | `string ReactElement<any, string JSXElementConstructor<any>>` | `-` |
+| onChange | 事件监听 | `((e: ChangeEvent<HTMLInputElement>) => void)` | `-` |
+| onKeyDown | 按下键盘时的回调 | `React.KeyboardEventHandler` | `-` |
+| onFocus | 聚焦时的回调 | `React.FocusEventHandler` | `-` |
+| onBlur | 失去焦点时的回调 | `React.FocusEventHandler` | `-` |
