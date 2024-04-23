@@ -42,6 +42,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     className,
     suffix,
     addonAfter,
+    placeholder,
     ...restProps
   } = props;
 
@@ -98,6 +99,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         className={classes2}
         disabled={disabled}
         onKeyDown={handleKeyDown}
+        placeholder={placeholder || ''}
         {...restProps}
       />
       {append && (

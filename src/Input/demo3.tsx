@@ -6,9 +6,9 @@ import './demo.less';
 const App = () => {
   return (
     <>
-      <Input append={<SearchSIcon />} />
+      <Input append={<SearchSIcon />} placeholder="请输入" />
       <br></br>
-      <Input prepend={'www.'} append={'.com'} defaultValue="请输入文字" />
+      <Input prepend={'www.'} append={'.com'} placeholder="请输入文字" />
     </>
   );
 };
