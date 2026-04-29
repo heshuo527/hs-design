@@ -3,7 +3,7 @@
   "name": "hs-design",
   "version": "1.0.13",
   "scripts": {
-    "start": "dumi dev",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider dumi dev",
     "docs:build": "dumi build",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "father build",

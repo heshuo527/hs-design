@@ -93,7 +93,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <div className={classes} style={style}>
       {prepend && <div className="hs-input-group-prepend">{prepend}</div>}
-      {icon && <div className="icon-wrapper">{children}</div>}
+      {icon && <div className="icon-wrapper">{icon}</div>}
       <input
         ref={ref}
         className={classes2}

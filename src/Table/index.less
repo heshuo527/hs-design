@@ -1,0 +1,65 @@
+@import '../style/color.less';
+
+.hs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.5;
+  color: @main;
+
+  &- bordered {
+    border: 1px solid @gray-300;
+
+    .hs-table-cell {
+      border: 1px solid @gray-300;
+    }
+  }
+
+  &-hoverable {
+    .hs-table-row:hover {
+      background-color: @gray-200;
+    }
+  }
+
+  &-cell {
+    padding: 0.75rem;
+    text-align: left;
+    background-color: @white;
+    border-bottom: 1px solid @gray-300;
+
+    &-align-left {
+      text-align: left;
+    }
+
+    &-align-center {
+      text-align: center;
+    }
+
+    &-align-right {
+      text-align: right;
+    }
+  }
+
+  &-header-cell {
+    font-weight: 600;
+    color: @gray-700;
+    background-color: @gray-200;
+    border-bottom: 2px solid @gray-300;
+  }
+
+  &-row {
+    transition: background-color 0.3s;
+
+    &-hoverable:hover {
+      background-color: @gray-200;
+    }
+  }
+
+  &-tbody {
+    .hs-table-row {
+      &:hover {
+        background-color: @gray-200;
+      }
+    }
+  }
+}

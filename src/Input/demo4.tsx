@@ -5,11 +5,11 @@ import './demo.less';
 const App = () => {
   return (
     <>
-      <Input size="small" defaultValue="small" />
+      <Input size="small" placeholder="small" />
       <div style={{ marginBottom: 20 }}></div>
-      <Input defaultValue="default" />
+      <Input placeholder="default" />
       <div style={{ marginBottom: 20 }}></div>
-      <Input size="lager" defaultValue="lager" />
+      <Input size="lager" placeholder="lager" />
     </>
   );
 };

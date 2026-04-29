@@ -5,3 +5,6 @@ export { default as Switch } from './Switch';
 export { default as Affix } from './Affix';
 export { default as Alert } from './Alert';
 export { default as VirtualList } from './VirtualList';
+export { default as Table } from './Table';
+export { default as Form } from './Form';
+export { default as Grid } from './Grid';

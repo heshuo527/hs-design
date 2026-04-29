@@ -1,0 +1,105 @@
+@import '../style/color.less';
+
+.hs-form {
+  font-size: 14px;
+
+  &-horizontal {
+    .hs-form-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 16px;
+
+      &-label {
+        flex: 0 0 auto;
+        padding-right: 8px;
+        padding-top: 4px;
+        color: @gray-700;
+        font-weight: 500;
+      }
+
+      &-control-wrapper {
+        flex: 1;
+        min-width: 0;
+      }
+
+      &-control {
+        flex: 1;
+      }
+
+      &-error {
+        margin-top: 4px;
+        color: @error;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &-vertical {
+    .hs-form-item {
+      margin-bottom: 16px;
+
+      &-label {
+        display: block;
+        margin-bottom: 4px;
+        color: @gray-700;
+        font-weight: 500;
+      }
+
+      &-error {
+        margin-top: 4px;
+        color: @error;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .hs-form-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+
+      &-label {
+        padding-right: 8px;
+        color: @gray-700;
+        font-weight: 500;
+      }
+
+      &-control-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &-error {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 2px;
+        color: @error;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .hs-form-item {
+    position: relative;
+
+    &.has-error {
+      .hs-input-inner {
+        border-color: @error;
+
+        &:focus {
+          border-color: @error;
+          box-shadow: 0 0 0 0.15rem rgba(@error, 0.15);
+        }
+      }
+    }
+  }
+}
